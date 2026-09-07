@@ -95,6 +95,7 @@
           "tipo": "Fondo propio",
           "riesgo": "Bajo",
           "que_hace": "Es la base estable de la cuenta: mientras el aporte mensual todavía es chico, mantiene el ahorro en dólares, líquido y de bajo riesgo, listo para seguir creciendo mes a mes.",
+          "resumen": "La base estable de la cuenta: ahorro en dólares, líquido y de bajo riesgo.",
           "datos": [ { "label": "Rescate", "valor": "24 horas" }, { "label": "Moneda", "valor": "USD" } ]
         },
         {
