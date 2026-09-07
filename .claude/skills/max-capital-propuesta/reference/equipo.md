@@ -9,6 +9,7 @@ cliente tiene que poder escribirle a los dos. Ver criterio 43.
 | Nombre | Email | Teléfono |
 |---|---|---|
 | Delfina Mitre | dmitre@max.capital | 11 3140 3595 |
+| Francisco José Monet | fmonet@max.capital | 11 5928 7717 |
 | Gimena Neveleff | gneveleff@max.capital | 11 2875 0278 |
 | Juan Esteban Muñoz | jmunoz@max.capital | 11 4960 8686 |
 | Marcos Sanchez Negrete | msancheznegrete@max.capital | 11 2251 5949 |

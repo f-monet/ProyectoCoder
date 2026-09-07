@@ -1,0 +1,110 @@
+{
+  "cliente": { "nombre": "Laura Goldberg" },
+  "asesores": [
+    { "nombre": "Francisco José Monet", "email": "fmonet@max.capital", "telefono": "11 5928 7717" }
+  ],
+  "fecha": "07/09/2026",
+  "anio": "2026",
+  "titulo": "Propuesta de Inversión",
+  "subtitulo": "Empezar hoy a construir, mes a mes, el capital para un retiro tranquilo.",
+  "objetivo": "Construir el capital para sostener el nivel de vida actual en el retiro",
+  "capitulos": [
+    {
+      "tipo": "perfil",
+      "titulo": "Punto de partida",
+      "subtitulo": "Esto es lo que entendimos de nuestra conversación. Si algo no coincide, corrijámoslo antes de avanzar.",
+      "rasgos": [
+        { "label": "Edad", "valor": "45 años" },
+        { "label": "Horizonte al retiro", "valor": "15 años (retiro estimado a los 60)" },
+        { "label": "Actividad", "valor": "Anestesióloga, responsable inscripta" },
+        { "label": "Dónde invierte hoy", "valor": "Todavía no invirtió en el mercado de capitales" }
+      ],
+      "notas": [
+        "Tus ingresos hoy dependen de tu actividad profesional día a día, y el objetivo es que dejes de depender sólo de eso el día de mañana.",
+        "El primer paso del plan es ordenar los gastos actuales para liberar margen de ahorro. A partir de ahí, la cuenta se empieza a fondear todos los meses."
+      ],
+      "puntos": [
+        "Un plan pensado para ustedes dos, Laura y Darío.",
+        "Arranca conservador y va incorporando más riesgo a medida que el aporte mensual crece.",
+        "Aportes mensuales a la cuenta, con reinversión de intereses en el tiempo."
+      ]
+    },
+    {
+      "tipo": "proyeccion",
+      "titulo": "Proyección al retiro",
+      "subtitulo": "Cifras en USD: lo que puede llegar a construir el aporte mensual en 15 años.",
+      "base": "Estimación en dólares, con aportes mensuales crecientes y reinversión de intereses a una tasa anual de entre 8% y 10%.",
+      "kpis": [
+        { "label": "Años para el retiro", "valor": "15 años", "nota": "2026 → 2041" },
+        { "label": "Capital estimado al retiro", "valor": "USD 70.000 – USD 100.000", "accent": true,
+          "nota": "Con aportes mensuales consistentes y reinversión de intereses" }
+      ],
+      "supuestos": [
+        { "label": "Rendimiento anual estimado", "valor": "8,0% – 10,0%" },
+        { "label": "Aporte mensual", "valor": "Creciente, desde ARS 1.000.000–2.000.000" }
+      ],
+      "nota": "Proyección ilustrativa. No contempla impuestos, costos de transacción ni variación del tipo de cambio. Los rendimientos son estimaciones y no constituyen garantía."
+    },
+    {
+      "tipo": "forma_de_trabajo",
+      "titulo": "Cómo trabajamos",
+      "intro": "Nuestro rol es el de asesor. La cuenta permanece a nombre de Laura, y se administra con un honorario sobre los activos, no por transacción.",
+      "pasos": [
+        { "titulo": "Ordenamos los gastos", "texto": "Liberamos margen mensual identificando qué gastos son ajustables." },
+        { "titulo": "Fondeamos la cuenta todos los meses", "texto": "Se arranca con ARS 1.000.000–2.000.000 mensuales y crece a medida que se libera más margen." },
+        { "titulo": "Reinvertimos los intereses", "texto": "Cada aporte se suma al anterior y sigue generando rendimiento, sin que haya que hacer nada manualmente." },
+        { "titulo": "Rebalanceamos y reportamos", "texto": "Revisamos la cartera de forma periódica y les enviamos reporting mensual." }
+      ]
+    },
+    {
+      "tipo": "cartera_sugerida",
+      "titulo": "Cómo se fondea la cuenta cada mes",
+      "subtitulo": "Arranca conservador: la mayor parte va al tramo líquido en dólares.",
+      "columnas": ["clase", "descripcion", "riesgo", "ponderacion", "monto"],
+      "kpis": [
+        { "label": "Aporte mensual inicial", "valor": "ARS 1.000.000 – 2.000.000", "accent": true,
+          "nota": "Se espera que crezca en los próximos meses" }
+      ],
+      "items": [
+        { "clase": "Renta Fija", "descripcion": "FCI Max Renta Fija Dólares", "riesgo": "Bajo",
+          "ponderacion": "70,0%", "monto": "ARS 700.000 – 1.400.000" },
+        { "clase": "Renta Variable", "descripcion": "Cartera CEDEARs de ETFs", "riesgo": "Alto",
+          "ponderacion": "30,0%", "monto": "ARS 300.000 – 600.000" }
+      ],
+      "total": { "clase": "Total", "ponderacion": "100,0%" },
+      "nota": "El aporte mensual es el punto de partida: se espera que crezca a medida que se ajusten gastos innecesarios."
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Por qué este plan",
+      "columnas": [
+        { "titulo": "Arranca conservador", "parrafos": [
+          "El 70% del aporte mensual va al FCI Max Renta Fija Dólares: liquidez en dólares, rescate en 24 horas y bajo riesgo.",
+          "Es el punto de partida pensado para quien todavía no invirtió en el mercado de capitales." ] },
+        { "titulo": "Crece con el tiempo", "parrafos": [
+          "El 30% restante se destina a la cartera CEDEARs de ETFs, diversificada en mercados globales.",
+          "A medida que el aporte mensual aumenta, ese equilibrio puede ajustarse sin cambiar el plan de fondo." ] }
+      ]
+    },
+    {
+      "tipo": "instrumentos",
+      "titulo": "Qué hace cada componente",
+      "fichas": [
+        {
+          "nombre": "FCI Max Renta Fija Dólares",
+          "tipo": "Fondo propio",
+          "riesgo": "Bajo",
+          "que_hace": "Es la base estable de la cuenta: mientras el aporte mensual todavía es chico, mantiene el ahorro en dólares, líquido y de bajo riesgo, listo para seguir creciendo mes a mes.",
+          "datos": [ { "label": "Rescate", "valor": "24 horas" }, { "label": "Moneda", "valor": "USD" } ]
+        },
+        {
+          "nombre": "Cartera CEDEARs de ETFs",
+          "tipo": "Cuenta administrada",
+          "riesgo": "Alto",
+          "que_hace": "Es el motor de largo plazo: la porción que busca capturar el crecimiento de los mercados globales durante los 15 años hasta el retiro.",
+          "datos": [ { "label": "Horizonte", "valor": "Largo plazo" }, { "label": "Diversificación", "valor": "Sectores, regiones y clases de activo" } ]
+        }
+      ]
+    }
+  ]
+}
