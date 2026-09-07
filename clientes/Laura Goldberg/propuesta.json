@@ -48,7 +48,7 @@
     {
       "tipo": "forma_de_trabajo",
       "titulo": "Cómo trabajamos",
-      "intro": "Nuestro rol es el de asesor. La cuenta permanece a nombre de Laura, y se administra con un honorario sobre los activos, no por transacción.",
+      "intro": "Nuestro rol es el de asesor. La cuenta puede abrirse a nombre de Laura, o de los dos si Darío se suma como cotitular.",
       "pasos": [
         { "titulo": "Ordenamos los gastos", "texto": "Liberamos margen mensual identificando qué gastos son ajustables." },
         { "titulo": "Fondeamos la cuenta todos los meses", "texto": "Se arranca con ARS 1.000.000–2.000.000 mensuales y crece a medida que se libera más margen." },
