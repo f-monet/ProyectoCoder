@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Max Capital — Formato ONE-PAGER (A4 apaisado)
+   --------------------------------------------------------------------------
+   1123 x 794 px = A4 horizontal @ 96dpi. Una sola hoja, pensada para el cliente
+   que quiere ver la propuesta completa de un vistazo. El orden de lectura baja
+   en bloques a ancho completo: KPIs, tabla de cartera, distribuciones, y la nota
+   de instrumentos apoyada contra el disclaimer al pie.
+
+   Todo tiene que entrar en la hoja sin scroll ni corte. Por eso el generador
+   mide el contenido y aplica .tight (y después .tighter) para comprimir
+   proporcionalmente antes que dejar que algo se desborde.
+   ========================================================================== */
+
+.sheet{width:1123px;height:794px;background:var(--white);position:relative;
+  overflow:hidden;page-break-after:always;display:flex;flex-direction:column;}
+.sheet:last-child{page-break-after:auto;}
+
+/* ---------- Cabecera ---------- */
+.op-header{background:var(--black);padding:16px 40px;display:flex;
+  align-items:center;justify-content:space-between;gap:20px;}
+.op-header-left{min-width:0;}
+.op-eyebrow{display:block;font-size:8.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.14em;color:rgba(255,255,255,0.55);margin-bottom:4px;}
+.op-title{margin:0;font-size:21px;font-weight:600;letter-spacing:-0.025em;
+  line-height:1.2;color:var(--white);}
+.op-logo{margin-right:-12px;}
+/* La fecha acompaña al nombre del cliente en el eyebrow: mismo tratamiento
+   (mayúsculas, tracking, peso) un punto más chica, para que se lea como dato
+   del mismo renglón y no compita con el nombre. Va acá y no al pie porque una
+   propuesta sin fecha visible no se puede archivar ni comparar contra una
+   posterior. */
+.op-fecha{font-size:7.4px;font-weight:600;letter-spacing:0.14em;
+  color:rgba(255,255,255,0.45);}
+
+/* ---------- Objetivo ---------- */
+.op-objetivo{background:var(--gray);padding:9px 40px;display:flex;
+  align-items:baseline;gap:12px;}
+.op-objetivo .lbl{font-size:8px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--caption);flex-shrink:0;}
+.op-objetivo .val{font-size:11.5px;font-weight:500;color:var(--black);
+  line-height:1.4;text-wrap:pretty;}
+
+/* El contenido arranca pegado al encabezado y el aire sobrante cae al pie. Antes
+   iba centrado verticalmente, lo que despegaba las tarjetas del header y dejaba
+   un hueco raro arriba. El padding inferior reserva el sitio del disclaimer,
+   que va posicionado en absoluto. */
+.op-body{padding:14px 40px 172px;flex:1;min-height:0;display:flex;
+  flex-direction:column;justify-content:flex-start;}
+.op-body > *{flex-shrink:0;}
+
+/* ---------- Fila de KPIs ---------- */
+.op-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
+  margin-bottom:16px;}
+.op-kpis.k4{grid-template-columns:repeat(4,1fr);}
+.op-kpis.k6{grid-template-columns:repeat(6,1fr);}
+
+/* ---------- Cuerpo: tabla arriba, distribuciones abajo ----------
+   La tabla de cartera toma el ancho completo de la hoja: es lo que el cliente
+   viene a leer y las columnas necesitan aire. Las distribuciones van debajo, en
+   fila. Antes vivían en una columna al costado y, con un solo gráfico, dejaban
+   medio pliego vacío. */
+.op-bottom{display:grid;gap:18px;align-items:start;margin-top:16px;}
+.op-dist{display:grid;gap:16px;}
+.op-dist .donut-card{border:1px solid var(--gray-line);}
+.op-dist .donut-row svg{width:92px;height:92px;}
+
+/* ---------- Nota de instrumentos ----------
+   Una línea por vehículo, en cuerpo de nota al pie. En el deck los instrumentos
+   son un capítulo con tarjetas; acá son contexto y no deben competir por espacio
+   con la tabla de cartera, que es lo que el cliente vino a ver. */
+/* `margin-top:auto` la empuja al fondo de la caja del cuerpo, que ya reserva el
+   alto del disclaimer. Así la nota queda siempre apoyada justo encima del texto
+   legal, sin importar cuán larga sea la cartera: cierra la hoja en vez de
+   flotar en el medio. Si el contenido llena la página, el auto colapsa a cero y
+   el padding-top mantiene la separación. */
+.op-nota-inst{margin-top:auto;padding-top:10px;
+  border-top:1px solid var(--hairline);
+  display:flex;flex-direction:column;gap:2.5px;}
+.op-nota-item{font-size:7.8px;line-height:1.4;color:var(--caption);
+  text-wrap:pretty;}
+.op-nota-item b{color:var(--gray-d);font-weight:600;}
+/* En modo comprimido se achica la separación, pero el margin-top sigue en auto:
+   si acá se fijara un valor, la nota dejaría de apoyarse contra el disclaimer. */
+.sheet.tight .op-nota-inst{padding-top:8px;}
+.sheet.tighter .op-nota-inst{padding-top:6px;gap:1.5px;}
+.sheet.tighter .op-nota-item{font-size:7.2px;line-height:1.35;}
+
+/* ---------- Pie ---------- */
+.op-foot{position:absolute;left:40px;right:40px;bottom:14px;display:flex;
+  gap:14px;align-items:flex-end;justify-content:space-between;}
+/* El texto legal NO se recorta: antes tenía max-height y se cortaba en silencio,
+   que es la peor forma de fallar en un disclaimer. Ocupa lo que necesita y el
+   cuerpo de la hoja reserva ese alto. */
+.op-foot .disclaimer{flex:1;font-size:5.6px;line-height:1.38;}
+.op-foot .op-meta{flex-shrink:0;text-align:right;font-size:7.6px;
+  color:var(--caption);line-height:1.5;white-space:nowrap;}
+.op-foot .op-meta b{display:block;color:var(--black);font-weight:600;
+  font-size:8.6px;}
+
+/* ---------- Compresión progresiva ----------
+   El generador estima la altura del contenido y agrega estas clases cuando
+   la cartera tiene muchas filas. Así una propuesta de 6 líneas y una de 20
+   salen igual de prolijas sin tocar nada a mano. */
+.sheet.tight .op-body{padding-top:12px;}
+.sheet.tight .op-kpis{margin-bottom:12px;gap:8px;}
+.sheet.tight .kpi{padding:8px 10px;}
+.sheet.tight .kpi .k-value{font-size:14.5px;}
+.sheet.tight table.mc{font-size:8.6px;}
+.sheet.tight table.mc tbody td{padding:5px 7px;}
+.sheet.tight .op-dist .donut-row svg{width:84px;height:84px;}
+
+.sheet.tighter .op-header{padding:12px 40px;}
+.sheet.tighter .op-title{font-size:18px;}
+.sheet.tighter .op-body{padding-top:10px;}
+.sheet.tighter .op-kpis{margin-bottom:10px;}
+.sheet.tighter .kpi{padding:6.5px 9px;}
+.sheet.tighter .kpi .k-value{font-size:13px;}
+.sheet.tighter .kpi .k-label{font-size:7.4px;margin-bottom:3px;}
+.sheet.tighter table.mc{font-size:7.9px;}
+.sheet.tighter table.mc thead th{padding:5px 6px;font-size:7.2px;}
+.sheet.tighter table.mc tbody td{padding:3.8px 6px;}
+.sheet.tighter .op-dist{gap:9px;}
+.sheet.tighter .op-dist .donut-row svg{width:74px;height:74px;}
+.sheet.tighter .donut-legend{font-size:8px;}
+.sheet.tighter .donut-legend-row{padding:1.8px 0;}
+
+/* Una sola distribución no se estira a lo ancho de la hoja: se acota para que
+   el donut y su leyenda queden juntos en vez de separados por medio pliego. */
+.op-dist.g1{max-width:430px;}
+.op-dist.g2{max-width:820px;}

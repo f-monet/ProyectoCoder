@@ -1,0 +1,463 @@
+{
+  "_comentario": "Ejemplo de referencia. Usa TODOS los tipos de capítulo, así que sirve como documentación viva: para ver qué produce cada uno, borrá los que no necesites y renderizá. Datos tomados de la cartera conservadora del equipo; el cliente es ficticio.",
+  "cliente": {
+    "nombre": "Cliente Ejemplo S.A."
+  },
+  "asesor": {
+    "nombre": "Pablo Haro",
+    "cargo": "Wealth Management",
+    "email": "pharo@max.capital"
+  },
+  "fecha": "27/08/2026",
+  "anio": "2026",
+  "titulo": "Propuesta de Inversión",
+  "subtitulo": "Preservación de capital a mediano plazo, con liquidez en 48 horas y exposición íntegra a moneda dura.",
+  "objetivo": "Preservación de capital a mediano plazo",
+  "mandato": "USD 100.000",
+  "capitulos": [
+    {
+      "tipo": "kpis",
+      "titulo": "La propuesta en cinco números",
+      "subtitulo": "Cartera conservadora en dólares, con rendimiento esperado de 6,4% anual y disponibilidad total en 48 horas.",
+      "items": [
+        {
+          "label": "Capital inicial",
+          "valor": "USD 100.000",
+          "accent": true
+        },
+        {
+          "label": "Rendimiento esperado",
+          "valor": "6,4%",
+          "nota": "Promedio anual"
+        },
+        {
+          "label": "Rendimiento en USD",
+          "valor": "USD 6.400",
+          "nota": "Primer año"
+        },
+        {
+          "label": "Proyección a 5 años",
+          "valor": "USD 136.367",
+          "nota": "Capitalizando"
+        },
+        {
+          "label": "Disponibilidad",
+          "valor": "48 hs",
+          "nota": "Liquidez total"
+        }
+      ],
+      "nota": "Los rendimientos son estimaciones basadas en supuestos de mercado vigentes y no constituyen garantía de resultados futuros."
+    },
+    {
+      "tipo": "divisor",
+      "titulo": "Cómo trabajamos",
+      "subtitulo": "La mecánica de la relación, antes de hablar de instrumentos."
+    },
+    {
+      "tipo": "forma_de_trabajo",
+      "titulo": "Cómo trabajamos",
+      "intro": "Nuestro rol es el de asesor de la cartera. La cuenta permanece a nombre del cliente y la custodia es independiente.",
+      "pasos": [
+        {
+          "titulo": "Definimos el mandato",
+          "texto": "Objetivo, horizonte, tolerancia al riesgo y restricciones quedan por escrito antes de la primera operación."
+        },
+        {
+          "titulo": "Construimos la cartera",
+          "texto": "Seleccionamos cada instrumento contra ese mandato. Sin managers intermedios ni capas adicionales de fees."
+        },
+        {
+          "titulo": "Ejecutamos y custodiamos",
+          "texto": "La titularidad es siempre del cliente. Nosotros instruimos operaciones dentro de la cuenta; no tomamos posesión de los activos."
+        },
+        {
+          "titulo": "Reportamos y revisamos",
+          "texto": "Fact sheet mensual del portfolio e informe de gestión con rendimiento, movimientos y TIR. Revisión formal semestral del mandato."
+        }
+      ]
+    },
+    {
+      "tipo": "divisor",
+      "titulo": "La cartera propuesta",
+      "subtitulo": "Seis posiciones, seis funciones distintas."
+    },
+    {
+      "tipo": "cartera_sugerida",
+      "titulo": "Cartera sugerida",
+      "subtitulo": "Renta fija en dólares como núcleo, con un componente estructurado acotado al 10% para elevar el rendimiento esperado.",
+      "columnas": [
+        "clase",
+        "descripcion",
+        "riesgo",
+        "rendimiento",
+        "plazo",
+        "monto",
+        "ponderacion"
+      ],
+      "items": [
+        {
+          "clase": "Renta Fija",
+          "descripcion": "Money Market USD",
+          "riesgo": "Bajo",
+          "rendimiento": "3,0%",
+          "plazo": "6 meses",
+          "monto": "USD 20.000",
+          "ponderacion": "20,0%",
+          "geografia": "USA",
+          "custodia": "Max UY"
+        },
+        {
+          "clase": "Renta Fija",
+          "descripcion": "FCI Max Renta Fija USD",
+          "riesgo": "Bajo",
+          "rendimiento": "8,0%",
+          "plazo": "1 año",
+          "monto": "USD 20.000",
+          "ponderacion": "20,0%",
+          "geografia": "ARG",
+          "custodia": "Max ARG"
+        },
+        {
+          "clase": "Renta Fija",
+          "descripcion": "Neuberger Berman Short Dur EMD",
+          "riesgo": "Bajo",
+          "rendimiento": "6,0%",
+          "plazo": "2 años",
+          "monto": "USD 15.000",
+          "ponderacion": "15,0%",
+          "geografia": "EM",
+          "custodia": "Max UY"
+        },
+        {
+          "clase": "Renta Fija",
+          "descripcion": "Pimco Income",
+          "riesgo": "Bajo",
+          "rendimiento": "6,0%",
+          "plazo": "2 años",
+          "monto": "USD 15.000",
+          "ponderacion": "15,0%",
+          "geografia": "USA",
+          "custodia": "Max UY"
+        },
+        {
+          "clase": "Renta Fija",
+          "descripcion": "Barings Global Senior Secured",
+          "riesgo": "Medio",
+          "rendimiento": "7,0%",
+          "plazo": "2 años",
+          "monto": "USD 20.000",
+          "ponderacion": "20,0%",
+          "geografia": "USA",
+          "custodia": "Max UY"
+        },
+        {
+          "clase": "Estructurados",
+          "descripcion": "Yield Enhancement Products",
+          "riesgo": "Alto",
+          "rendimiento": "10,0%",
+          "plazo": "2 años",
+          "monto": "USD 10.000",
+          "ponderacion": "10,0%",
+          "geografia": "USA",
+          "custodia": "Max UY"
+        }
+      ],
+      "total": {
+        "clase": "Total",
+        "riesgo": "Bajo",
+        "rendimiento": "6,4%",
+        "plazo": "2 años",
+        "monto": "USD 100.000",
+        "ponderacion": "100%"
+      },
+      "nota": "Trailer promedio ponderado de la cartera: 0,96% anual."
+    },
+    {
+      "tipo": "distribuciones",
+      "titulo": "Cómo queda distribuida",
+      "graficos": [
+        {
+          "titulo": "Por clase de activo",
+          "tipo": "donut",
+          "items": [
+            {
+              "label": "Renta Fija",
+              "valor": 90
+            },
+            {
+              "label": "Estructurados",
+              "valor": 10
+            }
+          ]
+        },
+        {
+          "titulo": "Por geografía",
+          "tipo": "donut",
+          "items": [
+            {
+              "label": "USA",
+              "valor": 65
+            },
+            {
+              "label": "ARG",
+              "valor": 20
+            },
+            {
+              "label": "Emerging Markets",
+              "valor": 15
+            }
+          ]
+        },
+        {
+          "titulo": "Por nivel de riesgo",
+          "tipo": "barras",
+          "items": [
+            {
+              "label": "Bajo",
+              "valor": 70
+            },
+            {
+              "label": "Medio",
+              "valor": 20
+            },
+            {
+              "label": "Alto",
+              "valor": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "instrumentos",
+      "titulo": "Qué hace cada componente",
+      "subtitulo": "Una línea por instrumento sobre la función que cumple dentro de la cartera, no su ficha técnica completa.",
+      "fichas": [
+        {
+          "nombre": "Money Market USD",
+          "tipo": "Liquidez",
+          "riesgo": "Bajo",
+          "que_hace": "Es el colchón de liquidez de la cartera: cubre el rescate de 48 horas sin obligar a desarmar ninguna otra posición.",
+          "datos": [
+            {
+              "label": "Rendimiento",
+              "valor": "3,0%"
+            },
+            {
+              "label": "Plazo",
+              "valor": "6 meses"
+            }
+          ]
+        },
+        {
+          "nombre": "FCI Max Renta Fija USD",
+          "tipo": "Fondo propio",
+          "riesgo": "Bajo",
+          "que_hace": "Renta fija corporativa argentina en dólares, con foco en corto plazo y alta calificación crediticia. Es el componente donde nuestra selección de crédito local agrega valor.",
+          "datos": [
+            {
+              "label": "Rendimiento",
+              "valor": "8,0%"
+            },
+            {
+              "label": "1 año",
+              "valor": "9,5%"
+            },
+            {
+              "label": "Custodia",
+              "valor": "Max ARG"
+            }
+          ]
+        },
+        {
+          "nombre": "Neuberger Berman Short Dur EMD",
+          "tipo": "Fondo de terceros",
+          "riesgo": "Bajo",
+          "que_hace": "Deuda emergente de duración corta. Diversifica el riesgo argentino del FCI hacia un universo de emisores soberanos y corporativos de otros mercados.",
+          "datos": [
+            {
+              "label": "Rendimiento",
+              "valor": "6,0%"
+            },
+            {
+              "label": "Trailer",
+              "valor": "0,50%"
+            }
+          ]
+        },
+        {
+          "nombre": "Pimco Income",
+          "tipo": "Fondo de terceros",
+          "riesgo": "Bajo",
+          "que_hace": "Cartera de renta fija global multisectorial. Aporta el ancla de estabilidad y un flujo de ingresos regular en dólares.",
+          "datos": [
+            {
+              "label": "Rendimiento",
+              "valor": "6,0%"
+            },
+            {
+              "label": "Trailer",
+              "valor": "0,65%"
+            }
+          ]
+        },
+        {
+          "nombre": "Barings Global Senior Secured",
+          "tipo": "Fondo de terceros",
+          "riesgo": "Medio",
+          "que_hace": "Préstamos corporativos con garantía senior. Sube el rendimiento esperado de la parte de renta fija sin salir del tramo de crédito garantizado.",
+          "datos": [
+            {
+              "label": "Rendimiento",
+              "valor": "7,0%"
+            },
+            {
+              "label": "Plazo",
+              "valor": "2 años"
+            }
+          ]
+        },
+        {
+          "nombre": "Yield Enhancement Products",
+          "tipo": "Estructurados",
+          "riesgo": "Alto",
+          "que_hace": "Combinan un subyacente de acciones o índices con derivados para optimizar el retorno bajo determinados escenarios. Es la única posición con riesgo de capital relevante y por eso está acotada al 10%.",
+          "datos": [
+            {
+              "label": "Rendimiento",
+              "valor": "10,0%"
+            },
+            {
+              "label": "Peso máximo",
+              "valor": "10%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "cartera_actual",
+      "titulo": "Situación actual de la cartera",
+      "subtitulo": "Foto de la posición vigente al 27/08/2026, previa a la reestructuración propuesta.",
+      "columnas": [
+        "descripcion",
+        "clase",
+        "monto",
+        "ponderacion"
+      ],
+      "items": [
+        {
+          "descripcion": "Plazo fijo USD",
+          "clase": "Liquidez",
+          "monto": "USD 45.000",
+          "ponderacion": "45,0%"
+        },
+        {
+          "descripcion": "Global 2035",
+          "clase": "Deuda Soberana",
+          "monto": "USD 30.000",
+          "ponderacion": "30,0%"
+        },
+        {
+          "descripcion": "Cash sin invertir",
+          "clase": "Liquidez",
+          "monto": "USD 25.000",
+          "ponderacion": "25,0%"
+        }
+      ],
+      "titulo_acciones": "Qué comprar y qué vender",
+      "intro_acciones": "El movimiento central es sacar 70% de la cartera de liquidez improductiva hacia renta fija con rendimiento.",
+      "acciones": {
+        "comprar": [
+          {
+            "nombre": "FCI Max Renta Fija USD",
+            "monto": "USD 20.000",
+            "razon": "Reemplaza al plazo fijo con rendimiento cuatro veces mayor y liquidez comparable."
+          },
+          {
+            "nombre": "Pimco Income",
+            "monto": "USD 15.000",
+            "razon": "Ancla de estabilidad global, diversifica fuera del riesgo argentino."
+          },
+          {
+            "nombre": "Barings Global Senior Secured",
+            "monto": "USD 20.000",
+            "razon": "Eleva el rendimiento del tramo de crédito manteniendo garantía senior."
+          }
+        ],
+        "vender": [
+          {
+            "nombre": "Plazo fijo USD",
+            "monto": "USD 45.000",
+            "razon": "Rinde por debajo de la inflación en dólares y bloquea el capital sin compensarlo."
+          }
+        ],
+        "mantener": [
+          {
+            "nombre": "Global 2035",
+            "monto": "USD 30.000",
+            "razon": "Posición con rendimiento adecuado; se reduce gradualmente al vencimiento."
+          }
+        ]
+      },
+      "nota": "Los montos de venta se reinvierten en el mismo ciclo de liquidación; no hay período fuera de mercado."
+    },
+    {
+      "tipo": "trades",
+      "titulo": "El canje propuesto",
+      "subtitulo": "Cada venta tiene su compra: el argumento es la comparación entre los dos.",
+      "titulo_razones": "Por qué cada canje",
+      "items": [
+        {
+          "etiqueta": "Canje 1",
+          "sale": "ON Vista 8,50% 2028",
+          "entra": "ON Pluspetrol 8,50% 2032",
+          "monto": "USD 40.000",
+          "razon": [
+            "Mismo emisor de primera línea y la misma tasa de cupón, cuatro años más de plazo.",
+            "Alarga la duration del tramo corporativo sin resignar TIR ni subir el riesgo de crédito."
+          ]
+        },
+        {
+          "etiqueta": "Canje 2",
+          "sale": "Liquidez en cuenta",
+          "entra": "FCI Max Renta Fija Dólares",
+          "monto": "USD 15.000",
+          "razon": "Saldos que hoy no rinden nada, a un fondo con rescate en 24 horas."
+        }
+      ],
+      "nota": "Los dos lados suman lo mismo: no entra ni sale capital de la cartera."
+    },
+    {
+      "tipo": "texto",
+      "titulo": "Por qué esta cartera y no otra",
+      "columnas": [
+        {
+          "titulo": "El punto de partida",
+          "parrafos": [
+            "El 70% de la cartera actual está en liquidez improductiva: plazo fijo en dólares y cash sin invertir.",
+            "Ese posicionamiento protege el capital nominal pero pierde poder adquisitivo todos los años."
+          ]
+        },
+        {
+          "titulo": "Qué cambia",
+          "parrafos": [
+            "La propuesta mueve ese 70% a renta fija en dólares con rendimiento esperado de entre 6% y 8% anual.",
+            "El perfil de riesgo sigue siendo conservador: cinco de las seis posiciones son renta fija."
+          ]
+        },
+        {
+          "titulo": "El costo del cambio",
+          "parrafos": [
+            "La liquidez pasa de inmediata a 48 horas. Es el único atributo que se resigna.",
+            "A cambio, el rendimiento esperado del portafolio pasa de aproximadamente 1,5% a 6,4% anual."
+          ]
+        }
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "titulo": "¡Muchas gracias!"
+    }
+  ]
+}

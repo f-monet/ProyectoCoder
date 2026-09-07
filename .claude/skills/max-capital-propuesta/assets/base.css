@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Max Capital — Propuestas de Inversión · capa de diseño compartida
+   --------------------------------------------------------------------------
+   Este archivo define los tokens de marca y las primitivas visuales que usan
+   los TRES formatos (deck, one-pager, documento). Es la única fuente de verdad
+   del color, la tipografía y el espaciado.
+
+   El generador antepone el bloque @font-face (Inter embebida) automáticamente,
+   así que NO agregues @font-face acá. Después de este archivo concatena el CSS
+   del formato elegido (deck.css / onepager.css / documento.css).
+
+   Los tokens están alineados con los de la skill max-capital-factsheet para que
+   un fact sheet y una propuesta del mismo cliente se vean como la misma familia.
+   ========================================================================== */
+
+:root{
+  --black:#111111;
+  --white:#FFFFFF;
+  --blue:#006FEE;        /* acento principal */
+  --navy:#0B2545;
+  --blue-l1:#6BA8F7;
+  --blue-l2:#99C5FA;
+  --blue-light:#CCE3FD;
+  --gray:#F4F4F5;        /* fondos suaves */
+  --gray-line:#E4E4E7;   /* bordes */
+  --hairline:#F1F1F3;    /* divisores internos */
+  --gray-d:#3A3A3F;      /* texto de cuerpo */
+  --caption:#71717A;     /* texto secundario */
+  --pos:#12A150;         /* comprar / positivo */
+  --neg:#F31260;         /* vender / negativo */
+  --yellow:#F5A524;      /* mantener / atención */
+
+  --r-sm:6px; --r-md:10px; --r-lg:14px; --r-full:9999px;
+  --font:'Inter',Arial,sans-serif;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;font-family:var(--font);color:var(--black);
+  -webkit-font-smoothing:antialiased;}
+a{color:var(--blue);text-decoration:none;}
+
+/* ---------- Logotipo oficial ----------
+   Los archivos de marketing se usan tal cual: sin recolorear, sin opacidad y
+   sin recortar sus márgenes (que son el área de resguardo de la marca). Para
+   fondo oscuro va la variante negativa; para fondo claro, la positiva. */
+.logo-img{display:block;height:auto;}
+
+/* ---------- Primitivas tipográficas ---------- */
+.eyebrow{font-size:8.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.12em;color:var(--caption);}
+.section-heading{font-size:10px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.04em;color:var(--black);margin:0 0 9px;}
+.lede{font-size:13px;line-height:1.55;color:var(--gray-d);margin:0 0 14px;
+  text-wrap:pretty;}
+.muted{color:var(--caption);}
+.num{font-variant-numeric:tabular-nums;}
+
+/* ---------- Pills de riesgo ---------- */
+.pill{display:inline-block;border-radius:var(--r-full);padding:3px 10px;
+  font-size:8.5px;font-weight:600;letter-spacing:0.02em;line-height:1.3;
+  background:var(--gray);color:var(--gray-d);white-space:nowrap;}
+/* Escala de riesgo: verde → azul → amarillo. El rojo queda reservado para
+   pérdidas y para el bloque de "vender": un nivel de riesgo alto es una
+   característica del instrumento, no un problema, y pintarlo de rojo lo lee
+   como una alarma. */
+.pill.bajo{background:#D7F5E4;color:#0A6B36;}
+.pill.medio{background:var(--blue-light);color:#0057BE;}
+.pill.alto{background:#FEF3D7;color:#8A5A00;}
+.pill.comprar{background:#D7F5E4;color:#0A6B36;}
+.pill.vender{background:#FFE1E8;color:#9B0B33;}
+.pill.mantener{background:var(--gray);color:var(--gray-d);}
+
+/* ---------- Tarjetas de KPI ---------- */
+.kpi-grid{display:grid;gap:10px;}
+.kpi{background:var(--gray);border-radius:var(--r-md);padding:11px 13px;
+  min-width:0;}
+.kpi .k-label{display:block;font-size:8px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.08em;color:var(--caption);margin-bottom:5px;line-height:1.25;}
+.kpi .k-value{display:block;font-size:17px;font-weight:600;letter-spacing:-0.02em;
+  line-height:1.15;color:var(--black);font-variant-numeric:tabular-nums;}
+.kpi .k-note{display:block;font-size:8.5px;color:var(--caption);margin-top:3px;
+  line-height:1.3;}
+.kpi.accent{background:var(--black);}
+.kpi.accent .k-label{color:rgba(255,255,255,0.55);}
+.kpi.accent .k-value,.kpi.accent .k-note{color:var(--white);}
+
+/* ---------- Tabla estándar (detalle de cartera, movimientos, etc.) ---------- */
+table.mc{width:100%;border-collapse:collapse;font-size:9.4px;
+  font-variant-numeric:tabular-nums;}
+/* Los encabezados SÍ pueden partirse en dos líneas. Si se los fuerza a una
+   sola, un título largo como "Rendimiento esperado" le roba el ancho a la
+   columna de descripción y termina partiendo los nombres de instrumento, que
+   es lo que el lector realmente necesita leer de corrido. */
+table.mc thead th{background:var(--black);color:var(--white);font-weight:500;
+  font-size:8.2px;text-transform:uppercase;letter-spacing:0.04em;
+  padding:7px 8px;text-align:left;line-height:1.2;white-space:normal;
+  vertical-align:bottom;}
+table.mc thead th:first-child{border-radius:var(--r-sm) 0 0 var(--r-sm);}
+table.mc thead th:last-child{border-radius:0 var(--r-sm) var(--r-sm) 0;}
+table.mc thead th.r,table.mc td.r{text-align:right;}
+table.mc thead th.c,table.mc td.c{text-align:center;}
+table.mc tbody td{padding:6.5px 8px;border-bottom:1px solid var(--hairline);
+  color:var(--gray-d);line-height:1.35;vertical-align:middle;}
+table.mc tbody td.strong{color:var(--black);font-weight:600;}
+table.mc tbody tr:last-child td{border-bottom:none;}
+table.mc tbody tr.total td{border-top:1.5px solid var(--black);border-bottom:none;
+  font-weight:600;color:var(--black);padding-top:8px;background:transparent;}
+table.mc td.pos{color:var(--pos);font-weight:600;}
+table.mc td.neg{color:var(--neg);font-weight:600;}
+.table-footnote{font-size:7.6px;color:#A1A1AA;margin-top:6px;line-height:1.4;}
+
+/* Reparto de ancho de la tabla de cartera. Sin esto el navegador reparte por
+   contenido y termina dándole 3 líneas a "Money Market USD" mientras deja aire
+   en las columnas numéricas. La descripción es la que necesita espacio; las
+   numéricas nunca deben partirse. */
+table.mc th.col-descripcion{width:26%;}
+table.mc th.col-clase{width:17%;}
+table.mc th.col-riesgo{width:9%;}
+table.mc td.col-rendimiento,table.mc td.col-plazo,table.mc td.col-monto,
+table.mc td.col-ponderacion,table.mc td.col-geografia,table.mc td.col-custodia,
+table.mc td.col-duration,table.mc td.col-vencimiento,table.mc td.col-tir,
+table.mc td.col-trailer,table.mc td.col-clase{white-space:nowrap;}
+
+/* ---------- Donuts de distribución ---------- */
+.dist-wrap{display:grid;gap:16px;}
+.donut-card{border:1px solid var(--gray-line);border-radius:var(--r-lg);
+  padding:11px 13px;min-width:0;}
+.donut-card h4{margin:0 0 9px;font-size:9.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.04em;color:var(--black);}
+.donut-row{display:flex;align-items:center;gap:14px;}
+.donut-row svg{flex-shrink:0;}
+.donut-legend{flex:1;min-width:0;font-size:8.8px;}
+.donut-legend-row{display:flex;justify-content:space-between;gap:8px;
+  line-height:1.45;padding:2.6px 0;color:var(--gray-d);font-weight:500;
+  border-bottom:1px solid var(--hairline);}
+.donut-legend-row:last-child{border-bottom:none;}
+.donut-legend-row .dot{display:inline-block;width:7px;height:7px;
+  border-radius:var(--r-full);margin-right:7px;vertical-align:middle;}
+.donut-legend-row span:last-child{color:var(--black);font-weight:600;
+  font-variant-numeric:tabular-nums;white-space:nowrap;}
+
+/* ---------- Barras horizontales (alternativa al donut) ---------- */
+.bars{display:flex;flex-direction:column;gap:7px;}
+.bar-row{font-size:9px;}
+.bar-head{display:flex;justify-content:space-between;margin-bottom:3px;
+  color:var(--gray-d);font-weight:500;}
+.bar-head b{color:var(--black);font-weight:600;font-variant-numeric:tabular-nums;}
+.bar-track{height:6px;background:var(--gray);border-radius:var(--r-full);
+  overflow:hidden;}
+.bar-fill{height:100%;border-radius:var(--r-full);}
+
+/* ---------- Fichas de instrumento ---------- */
+.ficha{border:1px solid var(--gray-line);border-radius:var(--r-lg);
+  padding:12px 14px;min-width:0;display:flex;flex-direction:column;gap:7px;}
+/* `baseline` y no `flex-start`: lo que tiene que quedar a la misma altura es la
+   línea de base del monto y la del nombre del instrumento, no el borde de sus
+   cajas — que difieren porque cada uno tiene su tamaño y su interlínea. */
+.ficha-head{display:flex;align-items:baseline;justify-content:space-between;
+  gap:10px;}
+/* Esquina derecha de la ficha: monto y/o pill de riesgo, alineados a la derecha
+   para que las tres fichas de una lámina cierren en la misma vertical. */
+.ficha-esq{display:flex;flex-direction:column;align-items:flex-end;gap:5px;
+  flex:0 0 auto;text-align:right;}
+.ficha-monto{font-size:12px;font-weight:700;color:var(--gray-d);
+  letter-spacing:-0.01em;line-height:1.25;white-space:nowrap;}
+.ficha-name{font-size:12px;font-weight:600;letter-spacing:-0.01em;
+  line-height:1.25;color:var(--black);}
+.ficha-kind{font-size:8px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.08em;color:var(--caption);margin-top:2px;display:block;}
+.ficha p{margin:0;font-size:9.4px;line-height:1.5;color:var(--gray-d);
+  text-wrap:pretty;}
+.ficha-datos{display:flex;flex-wrap:wrap;gap:5px 6px;margin-top:auto;padding-top:4px;}
+.dato{background:var(--gray);border-radius:var(--r-sm);padding:4px 8px;
+  font-size:8.4px;color:var(--gray-d);line-height:1.3;white-space:nowrap;}
+.dato b{color:var(--black);font-weight:600;font-variant-numeric:tabular-nums;}
+
+/* ---------- Pasos numerados (forma de trabajo) ---------- */
+.pasos{display:grid;gap:12px;}
+.paso{display:flex;gap:11px;align-items:flex-start;min-width:0;}
+.paso-num{flex-shrink:0;width:22px;height:22px;border-radius:var(--r-full);
+  background:var(--black);color:var(--white);font-size:9.5px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;line-height:1;}
+.paso-body{min-width:0;}
+.paso-body h5{margin:0 0 3px;font-size:10.5px;font-weight:600;
+  letter-spacing:-0.005em;color:var(--black);line-height:1.3;}
+.paso-body p{margin:0;font-size:9.4px;line-height:1.5;color:var(--gray-d);
+  text-wrap:pretty;}
+
+/* ---------- Bloques de texto en columnas ---------- */
+.cols{display:grid;gap:22px;align-items:start;}
+.col h5{margin:0 0 6px;font-size:10px;font-weight:600;color:var(--black);
+  letter-spacing:-0.005em;line-height:1.3;}
+.col p{margin:0 0 7px;font-size:9.6px;line-height:1.55;color:var(--gray-d);
+  text-wrap:pretty;}
+.col p:last-child{margin-bottom:0;}
+
+/* ---------- Disclaimer legal ---------- */
+.disclaimer{background:var(--gray);border-radius:var(--r-md);padding:11px 13px;
+  font-size:6.4px;line-height:1.42;color:var(--caption);text-align:justify;}
+.disclaimer b{color:var(--black);font-size:7.4px;text-transform:uppercase;
+  letter-spacing:0.04em;display:block;margin-bottom:5px;}
+
+/* Matrículas CNV: acompañan al disclaimer una sola vez por documento. */
+.disclaimer .matriculas{display:block;margin-top:6px;padding-top:5px;
+  border-top:1px solid rgba(0,0,0,0.07);}
+.closing .disclaimer .matriculas{border-top-color:rgba(255,255,255,0.14);}
+
+/* Valor secundario del KPI: el equivalente nominal debajo del real. */
+.kpi .k-alt{display:block;font-size:9px;font-weight:500;color:var(--caption);
+  margin-top:3px;line-height:1.25;font-variant-numeric:tabular-nums;}
+.kpi.accent .k-alt{color:rgba(255,255,255,0.62);}
+
+/* --- Cartera con gráfico al costado ------------------------------------- */
+/* La tabla manda: se lleva el ancho que necesita y el donut acompaña. El
+   `minmax(0,…)` evita que una descripción larga empuje al gráfico fuera. */
+.cart-wrap{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);
+  gap:20px;align-items:start;}
+.cart-wrap .donut-card{margin:0;}
+
+/* Columna agrupada: la etiqueta se escribe una vez por grupo. Va en gris
+   secundario porque encabeza el bloque, no compite con el componente. */
+.mc td.grupo{color:var(--caption);font-weight:600;}
+/* Filete al arrancar cada grupo: sin él las corridas se leen como una lista
+   corrida y se pierde justamente lo que la agrupación quiere mostrar. */
+.mc tr.g-ini td{border-top:1px solid var(--gray-line);}
+
+/* Con el gráfico al costado la tabla es más angosta, y el reparto por defecto
+   deja a la descripción con 26% mientras las columnas numéricas se quedan un
+   ancho que no usan. Un nombre largo parte en dos y esa fila queda del doble de
+   alto que el resto, que es lo primero que se ve. La descripción se lleva lo
+   que sobra; los números ocupan lo que miden. Ver criterio 59. */
+.cart-wrap table.mc th.col-clase{width:19%;}
+.cart-wrap table.mc th.col-descripcion{width:45%;}
+.cart-wrap table.mc th.col-monto{width:21%;}
+.cart-wrap table.mc th.col-ponderacion{width:15%;}
+
+/* En la cartera el donut vive en una columna angosta y la leyenda al costado se
+   queda sin ancho: "Renta variable" parte en dos y esa fila queda más alta que
+   las otras. Apilada debajo del gráfico, cada fila dispone del ancho completo
+   de la tarjeta y todas miden lo mismo. Ver criterio 59. */
+.cart-wrap .donut-row{flex-direction:column;align-items:center;gap:12px;}
+.cart-wrap .donut-legend{width:100%;flex:none;}
+.cart-wrap .donut-legend-row > span:first-child{white-space:nowrap;}
+
+/* Barra de peso dentro de la tabla. Un solo color: las barras comparan tamaños
+   entre sí, no señalan bueno y malo — colorearlas agregaría un juicio que el
+   dato no tiene.
+
+   Sin pista de fondo. Una pista gris se lee como "lo que falta", y acá no falta
+   nada: las barras escalan contra la fila más pesada, así que la pista llena
+   equivaldría a 18,9% y no a 100%. En la fila de Cash quedaba un punto azul
+   contra una pista entera, como si le faltara el 99%. Ver criterio 60. */
+.tbar{display:block;width:100%;height:5px;border-radius:var(--r-full);
+  background:none;overflow:hidden;}
+.tbar > span{display:block;height:100%;border-radius:var(--r-full);
+  background:var(--blue);}
+table.mc tr.total td.col-barra .tbar{display:none;}
+
+/* Etiqueta sin cifra: clasifica la posición en vez de medirla. Sin fondo lleno
+   para que no compita con los datos numéricos de la misma fila. */
+.dato.tag{background:none;border:1px solid var(--gray-line);color:var(--gray-d);
+  font-weight:600;}
+
+/* Subtotal de grupo: banda gris. Separa los bloques por el espacio y no por una
+   línea más — la tabla ya tiene un filete por fila, y sumar otro no jerarquiza,
+   satura. El gris cierra el grupo y de paso le da respiro a una tabla larga. */
+table.mc tbody tr.subtotal td{background:var(--gray);border-bottom:none;
+  font-weight:600;color:var(--black);padding-top:8px;padding-bottom:8px;}
+table.mc tbody tr.subtotal td:first-child{border-radius:var(--r-sm) 0 0 var(--r-sm);}
+table.mc tbody tr.subtotal td:last-child{border-radius:0 var(--r-sm) var(--r-sm) 0;}
+/* La fila que abre el grupo siguiente no necesita filete: la banda ya separó. */
+table.mc tbody tr.subtotal + tr td{border-top:none;}
+table.mc tbody tr.subtotal + tr.g-ini td{border-top:none;}
+
+/* La barra va a la derecha del porcentaje: primero el número, después su
+   tamaño. Angosta, porque compara proporciones y no necesita recorrido. */
+table.mc td.col-barra{width:11%;padding-left:10px;padding-right:0;}

@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Max Capital — Formato DOCUMENTO (A4 vertical, prosa institucional)
+   --------------------------------------------------------------------------
+   A diferencia del deck y del one-pager, acá el contenido FLUYE y Chromium
+   pagina solo. No hay cajas de alto fijo: el largo del documento depende del
+   texto. Los márgenes de página y el pie con numeración los pone el generador
+   vía page.pdf(), no este CSS.
+
+   Es el formato para comités de inversión, mandatos y licitaciones: secciones
+   numeradas, párrafos largos, tablas de referencia. El registro es más sobrio
+   que el del deck — casi sin color, jerarquía dada por la tipografía.
+   ========================================================================== */
+
+body.doc{background:var(--white);}
+.doc-wrap{font-size:10.5px;line-height:1.62;color:var(--gray-d);}
+
+/* Al imprimir, los márgenes de página los pone el generador vía page.pdf().
+   En pantalla no existen, así que el HTML de diseño saldría pegado al borde y
+   con líneas larguísimas. Esta regla reproduce en pantalla la caja de texto
+   real del A4 (170mm ≈ 643px) para que lo que se edita en Claude Design se
+   parezca al PDF. No afecta la impresión. */
+@media screen{
+  body.doc{background:#EDEDEF;padding:28px 0;}
+  .doc-wrap{width:643px;margin:0 auto;background:var(--white);
+    padding:34px 30px;box-shadow:0 2px 14px rgba(0,0,0,0.10);}
+}
+
+/* ---------- Portada del documento ---------- */
+/* A4 (1123px @96dpi) menos los márgenes de impresión (20mm + 18mm ≈ 144px)
+   deja ~979px de caja útil. 950px garantiza que la portada ocupe la hoja
+   completa sin empujar una página en blanco. */
+.doc-cover{height:950px;display:flex;flex-direction:column;
+  page-break-after:always;}
+.doc-cover .dc-logo{margin-left:-18px;}
+.doc-cover .dc-eyebrow{margin-top:64px;font-size:9.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.16em;color:var(--blue);}
+.doc-cover h1{margin:14px 0 0;font-size:34px;font-weight:600;
+  letter-spacing:-0.03em;line-height:1.15;color:var(--black);max-width:520px;
+  text-wrap:balance;}
+.doc-cover .dc-client{margin:18px 0 0;font-size:17px;font-weight:400;
+  color:var(--gray-d);line-height:1.3;}
+.doc-cover .dc-rule{width:56px;height:3px;background:var(--blue);margin:26px 0 0;}
+.doc-cover .dc-meta{margin-top:auto;border-top:1px solid var(--gray-line);
+  padding-top:16px;display:flex;flex-wrap:wrap;gap:26px;}
+.doc-cover .dc-meta div{min-width:120px;}
+.doc-cover .dc-meta .lbl{display:block;font-size:8px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;color:var(--caption);
+  margin-bottom:4px;}
+.doc-cover .dc-meta .val{display:block;font-size:11px;font-weight:600;
+  color:var(--black);line-height:1.35;}
+
+/* ---------- Índice ---------- */
+.doc-toc{page-break-after:always;}
+.doc-toc h2{margin:0 0 18px;font-size:16px;font-weight:600;color:var(--black);
+  letter-spacing:-0.02em;}
+.doc-toc ol{margin:0;padding:0;list-style:none;counter-reset:toc;}
+.doc-toc li{counter-increment:toc;display:flex;gap:12px;padding:8px 0;
+  border-bottom:1px solid var(--hairline);font-size:11px;color:var(--black);}
+.doc-toc li::before{content:counter(toc) ".";font-weight:600;color:var(--blue);
+  flex-shrink:0;width:20px;font-variant-numeric:tabular-nums;}
+
+/* ---------- Secciones numeradas ---------- */
+.doc-sec{counter-increment:sec;margin-bottom:26px;}
+.doc-wrap{counter-reset:sec;}
+.doc-sec > h2{margin:0 0 12px;font-size:16px;font-weight:600;color:var(--black);
+  letter-spacing:-0.02em;line-height:1.25;page-break-after:avoid;
+  padding-bottom:8px;border-bottom:1px solid var(--gray-line);}
+.doc-sec > h2::before{content:counter(sec) ". ";color:var(--blue);}
+.doc-sec h3{margin:16px 0 7px;font-size:11.5px;font-weight:600;color:var(--black);
+  letter-spacing:-0.01em;line-height:1.35;page-break-after:avoid;}
+.doc-sec p{margin:0 0 9px;text-wrap:pretty;}
+.doc-sec ul{margin:0 0 10px;padding-left:0;list-style:none;}
+.doc-sec ul li{position:relative;padding-left:16px;margin-bottom:5px;
+  text-wrap:pretty;}
+.doc-sec ul li::before{content:"";position:absolute;left:3px;top:7.5px;
+  width:4px;height:4px;border-radius:var(--r-full);background:var(--blue);}
+
+/* Bloque destacado: la idea que ordena la sección. */
+.doc-callout{background:var(--gray);border-left:3px solid var(--blue);
+  border-radius:0 var(--r-md) var(--r-md) 0;padding:12px 15px;margin:0 0 14px;
+  font-size:11px;line-height:1.55;color:var(--black);page-break-inside:avoid;}
+.doc-callout b{font-weight:600;}
+
+/* ---------- Tablas y figuras dentro del documento ---------- */
+.doc-sec table.mc{margin:0 0 12px;font-size:9.6px;page-break-inside:avoid;}
+.doc-sec .dist-wrap{margin:0 0 14px;grid-template-columns:1fr 1fr;
+  page-break-inside:avoid;}
+.doc-sec .ficha{margin-bottom:10px;page-break-inside:avoid;}
+.doc-sec .fichas-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:12px;}
+.doc-sec .kpi-grid{grid-template-columns:repeat(4,1fr);margin-bottom:14px;
+  page-break-inside:avoid;}
+.doc-figcap{font-size:8.4px;color:var(--caption);margin:-6px 0 14px;
+  line-height:1.45;}
+
+/* ---------- Cierre legal ---------- */
+.doc-legal{page-break-before:always;}
+.doc-legal h2{margin:0 0 12px;font-size:13px;font-weight:600;color:var(--black);}
+.doc-legal .disclaimer{background:transparent;padding:0;font-size:7.4px;
+  line-height:1.5;}
+.doc-legal .disclaimer b{margin-bottom:7px;}
+.doc-firma{margin-top:26px;padding-top:16px;border-top:1px solid var(--gray-line);
+  display:flex;gap:34px;}
+.doc-firma div .lbl{display:block;font-size:8px;font-weight:600;
+  text-transform:uppercase;letter-spacing:0.1em;color:var(--caption);
+  margin-bottom:4px;}
+.doc-firma div .val{display:block;font-size:11px;font-weight:600;
+  color:var(--black);line-height:1.4;}
