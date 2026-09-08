@@ -1,0 +1,101 @@
+{
+  "cliente": { "nombre": "Juan D'Alessio" },
+  "asesores": [
+    { "nombre": "Francisco José Monet", "email": "fmonet@max.capital", "telefono": "11 5928 7717" }
+  ],
+  "fecha": "08/09/2026",
+  "anio": "2026",
+  "titulo": "Propuesta de Inversión",
+  "subtitulo": "Que el ahorro que hoy no rinde nada empiece a trabajar.",
+  "objetivo": "Poner a rendir el ahorro, con un horizonte de largo plazo",
+  "capitulos": [
+    {
+      "tipo": "perfil",
+      "titulo": "Punto de partida",
+      "subtitulo": "Esto es lo que entendimos de nuestra conversación. Si algo no coincide, corrijámoslo antes de avanzar.",
+      "rasgos": [
+        { "label": "Edad", "valor": "27 años" },
+        { "label": "Actividad", "valor": "Editor de video y contenido en ESPN (8 años) + proyectos independientes" },
+        { "label": "Dónde invierte hoy", "valor": "Ahorros en caja de seguridad, sin rendimiento" },
+        { "label": "Horizonte", "valor": "Largo plazo" }
+      ],
+      "notas": [
+        "Preferís delegar esta parte de tu patrimonio en quien tiene el tiempo y la experiencia para ocuparse, aunque te interesa genuinamente entender cómo funciona.",
+        "No contemplás la opción de retirar todo el capital el día de mañana, sea cual sea el gasto: incluso para una compra grande preferís financiarla en cuotas antes que descapitalizar la cuenta."
+      ],
+      "puntos": [
+        "Portfolio adaptado a un horizonte largo, con más ponderación en renta variable.",
+        "Gestión activa de rebalanceos.",
+        "Reporting para que puedas seguir de cerca cómo funciona la cartera."
+      ]
+    },
+    {
+      "tipo": "forma_de_trabajo",
+      "titulo": "Cómo trabajamos",
+      "intro": "Nuestro rol es el de asesor: administramos la cartera para vos, y te mantenemos al tanto de cómo funciona.",
+      "pasos": [
+        { "titulo": "Sacamos el capital de la caja de seguridad", "texto": "Pasa a una cartera que empieza a generar rendimiento." },
+        { "titulo": "Armamos la cartera 60/40", "texto": "Renta fija en dólares como base, con más peso en renta variable por el horizonte largo." },
+        { "titulo": "Rebalanceamos periódicamente", "texto": "Ajustamos la composición para sostener la estrategia en el tiempo." },
+        { "titulo": "Te mantenemos informado", "texto": "Reporting y contacto permanente, para que sigas entendiendo cómo funciona tu cartera." }
+      ]
+    },
+    {
+      "tipo": "cartera_actual",
+      "titulo": "Qué hacemos con lo que ya tenés",
+      "columnas": ["descripcion", "clase", "monto"],
+      "items": [
+        { "descripcion": "Ahorros en caja de seguridad", "clase": "Liquidez improductiva", "monto": "Hasta USD 30.000" }
+      ],
+      "titulo_acciones": "El movimiento",
+      "intro_acciones": "El capital sale de una caja de seguridad que sólo genera gastos y entra a una cartera que empieza a trabajar.",
+      "acciones": {
+        "vender": [
+          { "nombre": "Ahorros en caja de seguridad", "monto": "Hasta USD 30.000", "razon": "No genera ningún rendimiento; sólo cuesta la custodia." }
+        ],
+        "comprar": [
+          { "nombre": "FCI Max Renta Fija Dólares", "monto": "60% del capital", "razon": "Empieza a rendir en dólares desde el primer día, con liquidez en 24 horas." },
+          { "nombre": "Cartera CEDEARs de ETFs", "monto": "40% del capital", "razon": "Capta el crecimiento de mercados globales, acorde al horizonte largo que tenés por delante." }
+        ]
+      }
+    },
+    {
+      "tipo": "cartera_sugerida",
+      "titulo": "Cartera sugerida",
+      "subtitulo": "Un core en dólares, con más peso en renta variable dado el horizonte largo.",
+      "columnas": ["clase", "descripcion", "riesgo", "ponderacion", "monto"],
+      "kpis": [
+        { "label": "Capital a invertir", "valor": "Hasta USD 30.000", "accent": true }
+      ],
+      "items": [
+        { "clase": "Renta Fija", "descripcion": "FCI Max Renta Fija Dólares", "riesgo": "Bajo",
+          "ponderacion": "60,0%", "monto": "Hasta USD 18.000" },
+        { "clase": "Renta Variable", "descripcion": "Cartera CEDEARs de ETFs", "riesgo": "Alto",
+          "ponderacion": "40,0%", "monto": "Hasta USD 12.000" }
+      ],
+      "total": { "clase": "Total", "ponderacion": "100,0%", "monto": "Hasta USD 30.000" },
+      "grafico": { "titulo": "Composición", "items": [ { "label": "Renta Fija", "valor": 60 }, { "label": "Renta Variable", "valor": 40 } ] },
+      "nota": "Los montos son un techo estimado: el capital final a invertir depende del saldo exacto que se retire de la caja de seguridad."
+    },
+    {
+      "tipo": "instrumentos",
+      "titulo": "Qué hace cada componente",
+      "fichas": [
+        {
+          "nombre": "FCI Max Renta Fija Dólares",
+          "tipo": "Fondo propio",
+          "riesgo": "Bajo",
+          "que_hace": "Es el ancla estable de la cartera: mientras vas conociendo cómo funciona el resto, esta porción se mantiene en dólares, líquida y de bajo riesgo.",
+          "datos": [ { "label": "Rescate", "valor": "24 horas" }, { "label": "Moneda", "valor": "USD" } ]
+        },
+        {
+          "nombre": "Cartera CEDEARs de ETFs",
+          "tipo": "Cuenta administrada",
+          "riesgo": "Alto",
+          "que_hace": "Es el motor de crecimiento: la porción con más peso relativo, pensada para capturar el rendimiento de mercados globales en un horizonte largo.",
+          "datos": [ { "label": "Horizonte", "valor": "Largo plazo" }, { "label": "Diversificación", "valor": "Sectores, regiones y clases de activo" } ]
+        }
+      ]
+    }
+  ]
+}
