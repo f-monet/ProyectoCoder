@@ -43,15 +43,15 @@
     {
       "tipo": "cartera_actual",
       "titulo": "Qué hacemos con lo que ya tenés",
-      "columnas": ["descripcion", "clase", "monto"],
+      "columnas": ["descripcion", "clase"],
       "items": [
-        { "descripcion": "Ahorros en caja de seguridad", "clase": "Liquidez improductiva", "monto": "Hasta USD 30.000" }
+        { "descripcion": "Ahorros en caja de seguridad", "clase": "Liquidez improductiva" }
       ],
       "titulo_acciones": "El movimiento",
       "intro_acciones": "El capital sale de una caja de seguridad que sólo genera gastos y entra a una cartera que empieza a trabajar.",
       "acciones": {
         "vender": [
-          { "nombre": "Ahorros en caja de seguridad", "monto": "Hasta USD 30.000", "razon": "No genera ningún rendimiento; sólo cuesta la custodia." }
+          { "nombre": "Ahorros en caja de seguridad", "razon": "No genera ningún rendimiento; sólo cuesta la custodia." }
         ],
         "comprar": [
           { "nombre": "FCI Max Renta Fija Dólares", "monto": "60% del capital", "razon": "Empieza a rendir en dólares desde el primer día, con liquidez en 24 horas." },
@@ -63,19 +63,16 @@
       "tipo": "cartera_sugerida",
       "titulo": "Cartera sugerida",
       "subtitulo": "Un core en dólares, con más peso en renta variable dado el horizonte largo.",
-      "columnas": ["clase", "descripcion", "riesgo", "ponderacion", "monto"],
-      "kpis": [
-        { "label": "Capital a invertir", "valor": "Hasta USD 30.000", "accent": true }
-      ],
+      "columnas": ["clase", "descripcion", "riesgo", "ponderacion"],
       "items": [
         { "clase": "Renta Fija", "descripcion": "FCI Max Renta Fija Dólares", "riesgo": "Bajo",
-          "ponderacion": "60,0%", "monto": "Hasta USD 18.000" },
+          "ponderacion": "60,0%" },
         { "clase": "Renta Variable", "descripcion": "Cartera CEDEARs de ETFs", "riesgo": "Alto",
-          "ponderacion": "40,0%", "monto": "Hasta USD 12.000" }
+          "ponderacion": "40,0%" }
       ],
-      "total": { "clase": "Total", "ponderacion": "100,0%", "monto": "Hasta USD 30.000" },
+      "total": { "clase": "Total", "ponderacion": "100,0%" },
       "grafico": { "titulo": "Composición", "items": [ { "label": "Renta Fija", "valor": 60 }, { "label": "Renta Variable", "valor": 40 } ] },
-      "nota": "Los montos son un techo estimado: el capital final a invertir depende del saldo exacto que se retire de la caja de seguridad."
+      "nota": "Esta ponderación 60/40 se mantiene sea cual sea el capital que finalmente se transfiera desde la caja de seguridad."
     },
     {
       "tipo": "instrumentos",
