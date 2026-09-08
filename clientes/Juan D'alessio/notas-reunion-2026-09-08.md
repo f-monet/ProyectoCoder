@@ -40,3 +40,10 @@
   terminó concluyendo que se ve con un perfil donde pondere un poco más la
   renta variable — entendiendo que tiene el tiempo por delante y puede
   asumir mayores riesgos.
+- Le pareció que el 70/30 era demasiado conservador. Terminé proponiéndole
+  un 60/40 (renta fija / renta variable) y le pareció bien.
+
+## Monto
+
+- No dio un monto exacto, pero no van a ser más de USD 30.000 por el
+  momento.
