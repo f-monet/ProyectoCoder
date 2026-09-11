@@ -1,25 +1,10 @@
-const STORAGE_KEY = "rs-discografia-estado";
-
 const BAND_CATEGORIES = ["Estudio", "Vivo", "Recopilatorio", "Single/EP", "Bootleg", "Box"];
 const SOLO_CATEGORIES = ["Estudio", "Vivo", "Box"];
 
-function loadState() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch {
-    return {};
-  }
-}
+const db = firebase.firestore();
+const collectionRef = db.collection("coleccion");
 
-function saveState(state) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // localStorage no disponible (modo privado, etc.) — se pierde al recargar.
-  }
-}
-
-let state = loadState();
+let state = {};
 let currentView = "band"; // "band" | "solo"
 let currentFilter = "all";
 let currentArtist = "all";
@@ -39,9 +24,12 @@ function getEntry(id) {
 }
 
 function updateEntry(id, patch) {
-  state[id] = { ...getEntry(id), ...patch };
-  saveState(state);
+  const entry = { ...getEntry(id), ...patch };
+  state[id] = entry;
   renderStats();
+  collectionRef.doc(id).set(entry, { merge: true }).catch((err) => {
+    console.error("No se pudo guardar en la nube:", err);
+  });
 }
 
 function albumsInView() {
@@ -199,13 +187,6 @@ tbody.addEventListener("change", (e) => {
   if (field === "owned") renderTable();
 });
 
-tbody.addEventListener("input", (e) => {
-  const target = e.target;
-  if (target.dataset.field === "notes") {
-    updateEntry(target.dataset.id, { notes: target.value });
-  }
-});
-
 searchInput.addEventListener("input", (e) => {
   searchTerm = e.target.value.trim().toLowerCase();
   renderTable();
@@ -236,7 +217,24 @@ viewTabs.forEach((tab) => {
 
 renderArtistSelect();
 renderFilterTabs();
-renderTable();
+tbody.innerHTML = `<tr><td class="empty-row">Conectando con la nube...</td></tr>`;
+
+collectionRef.onSnapshot(
+  (snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      if (change.type === "removed") {
+        delete state[change.doc.id];
+      } else {
+        state[change.doc.id] = change.doc.data();
+      }
+    });
+    renderTable();
+  },
+  (err) => {
+    console.error("Error de conexión con Firestore:", err);
+    tbody.innerHTML = `<tr><td class="empty-row">No se pudo conectar con la base de datos en la nube. Revisá tu conexión a internet.</td></tr>`;
+  }
+);
 
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
