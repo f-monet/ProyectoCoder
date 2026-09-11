@@ -1,5 +1,8 @@
 const STORAGE_KEY = "rs-discografia-estado";
 
+const BAND_CATEGORIES = ["Estudio", "Vivo", "Recopilatorio", "Single/EP", "Bootleg", "Box"];
+const SOLO_CATEGORIES = ["Estudio", "Vivo", "Box"];
+
 function loadState() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
@@ -17,14 +20,19 @@ function saveState(state) {
 }
 
 let state = loadState();
+let currentView = "band"; // "band" | "solo"
 let currentFilter = "all";
+let currentArtist = "all";
 let searchTerm = "";
 let onlyMissing = false;
 
 const tbody = document.getElementById("album-body");
+const thead = document.getElementById("table-head");
 const searchInput = document.getElementById("search");
 const onlyMissingCheckbox = document.getElementById("only-missing");
-const tabs = document.querySelectorAll(".tab");
+const filterTabsEl = document.getElementById("filter-tabs");
+const artistSelect = document.getElementById("artist-select");
+const viewTabs = document.querySelectorAll(".view-tab");
 
 function getEntry(id) {
   return state[id] || { owned: false, format: "", notes: "" };
@@ -36,9 +44,26 @@ function updateEntry(id, patch) {
   renderStats();
 }
 
+function albumsInView() {
+  if (currentView === "band") {
+    return ALL_ALBUMS.filter((a) => a.artist === "The Rolling Stones");
+  }
+  return ALL_ALBUMS.filter(
+    (a) => a.artist !== "The Rolling Stones" && (currentArtist === "all" || a.artist === currentArtist)
+  );
+}
+
+function matchesFilters(album) {
+  if (currentFilter !== "all" && album.category !== currentFilter) return false;
+  if (searchTerm && !album.title.toLowerCase().includes(searchTerm)) return false;
+  if (onlyMissing && getEntry(album.id).owned) return false;
+  return true;
+}
+
 function renderStats() {
-  const total = ALBUMS_SEED.length;
-  const owned = ALBUMS_SEED.filter((a) => getEntry(a.id).owned).length;
+  const rows = albumsInView().filter(matchesFilters);
+  const total = rows.length;
+  const owned = rows.filter((a) => getEntry(a.id).owned).length;
   const missing = total - owned;
   const pct = total ? Math.round((owned / total) * 100) : 0;
 
@@ -48,38 +73,104 @@ function renderStats() {
   document.getElementById("stat-pct").textContent = `${pct}%`;
 }
 
-function matchesFilters(album) {
-  if (currentFilter !== "all" && album.type !== currentFilter) return false;
-  if (searchTerm && !album.title.toLowerCase().includes(searchTerm)) return false;
-  if (onlyMissing && getEntry(album.id).owned) return false;
-  return true;
+function renderFilterTabs() {
+  const categories = currentView === "band" ? BAND_CATEGORIES : SOLO_CATEGORIES;
+  filterTabsEl.innerHTML = "";
+
+  const makeTab = (label, value) => {
+    const btn = document.createElement("button");
+    btn.className = "tab" + (currentFilter === value ? " active" : "");
+    btn.textContent = label;
+    btn.dataset.filter = value;
+    btn.addEventListener("click", () => {
+      currentFilter = value;
+      renderFilterTabs();
+      renderTable();
+    });
+    return btn;
+  };
+
+  filterTabsEl.appendChild(makeTab("Todos", "all"));
+  for (const cat of categories) {
+    filterTabsEl.appendChild(makeTab(cat === "Recopilatorio" ? "Recopilatorios" : cat, cat));
+  }
+}
+
+function renderArtistSelect() {
+  if (currentView !== "solo") {
+    artistSelect.hidden = true;
+    return;
+  }
+  artistSelect.hidden = false;
+  artistSelect.innerHTML = `<option value="all">Todos los solistas</option>`;
+  for (const artist of SOLO_ARTISTS) {
+    const opt = document.createElement("option");
+    opt.value = artist;
+    opt.textContent = artist;
+    if (artist === currentArtist) opt.selected = true;
+    artistSelect.appendChild(opt);
+  }
+}
+
+function renderTableHead() {
+  const showArtistCol = currentView === "solo" && currentArtist === "all";
+  const showRegionLabelCols = currentView === "band";
+
+  thead.innerHTML = `
+    <tr>
+      <th></th>
+      <th>Año</th>
+      ${showArtistCol ? "<th>Artista</th>" : ""}
+      <th>Álbum</th>
+      <th>Tipo</th>
+      ${showRegionLabelCols ? "<th>Región</th><th>Sello</th>" : ""}
+      <th>Formato</th>
+      <th>Notas</th>
+    </tr>
+  `;
 }
 
 function renderTable() {
+  renderTableHead();
   tbody.innerHTML = "";
-  const rows = ALBUMS_SEED.filter(matchesFilters).sort((a, b) => a.year - b.year);
+
+  const showArtistCol = currentView === "solo" && currentArtist === "all";
+  const showRegionLabelCols = currentView === "band";
+  const colSpan = 5 + (showArtistCol ? 1 : 0) + (showRegionLabelCols ? 2 : 0);
+
+  const rows = albumsInView()
+    .filter(matchesFilters)
+    .sort((a, b) => a.year - b.year || a.title.localeCompare(b.title));
 
   if (rows.length === 0) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td colspan="6" class="empty-row">No hay álbumes que coincidan.</td>`;
+    tr.innerHTML = `<td colspan="${colSpan}" class="empty-row">No hay álbumes que coincidan (o esta categoría todavía se está completando).</td>`;
     tbody.appendChild(tr);
+    renderStats();
     return;
   }
 
-  for (const album of rows) {
-    const entry = getEntry(album.id);
+  for (const albumRow of rows) {
+    const entry = getEntry(albumRow.id);
     const tr = document.createElement("tr");
     if (entry.owned) tr.classList.add("owned-row");
 
+    const catClass = albumRow.category.replace("/", "");
+
     tr.innerHTML = `
       <td>
-        <input type="checkbox" ${entry.owned ? "checked" : ""} data-id="${album.id}" data-field="owned" />
+        <input type="checkbox" ${entry.owned ? "checked" : ""} data-id="${albumRow.id}" data-field="owned" />
       </td>
-      <td>${album.year}</td>
-      <td>${album.title}</td>
-      <td><span class="badge badge-${album.type}">${album.type}</span></td>
+      <td>${albumRow.year}</td>
+      ${showArtistCol ? `<td>${albumRow.artist}</td>` : ""}
       <td>
-        <select data-id="${album.id}" data-field="format">
+        ${albumRow.title}
+        ${albumRow.note ? `<div class="row-note">${albumRow.note}</div>` : ""}
+      </td>
+      <td><span class="badge badge-${catClass}">${albumRow.category}</span></td>
+      ${showRegionLabelCols ? `<td>${albumRow.region || "—"}</td><td>${albumRow.label || "—"}</td>` : ""}
+      <td>
+        <select data-id="${albumRow.id}" data-field="format">
           <option value="" ${!entry.format ? "selected" : ""}>—</option>
           <option value="Vinilo" ${entry.format === "Vinilo" ? "selected" : ""}>Vinilo</option>
           <option value="CD" ${entry.format === "CD" ? "selected" : ""}>CD</option>
@@ -88,11 +179,13 @@ function renderTable() {
         </select>
       </td>
       <td>
-        <input type="text" class="notes-input" placeholder="Notas..." value="${entry.notes || ""}" data-id="${album.id}" data-field="notes" />
+        <input type="text" class="notes-input" placeholder="Notas..." value="${entry.notes || ""}" data-id="${albumRow.id}" data-field="notes" />
       </td>
     `;
     tbody.appendChild(tr);
   }
+
+  renderStats();
 }
 
 tbody.addEventListener("change", (e) => {
@@ -101,10 +194,7 @@ tbody.addEventListener("change", (e) => {
   const field = target.dataset.field;
   if (!id || !field) return;
 
-  let value;
-  if (field === "owned") value = target.checked;
-  else value = target.value;
-
+  const value = field === "owned" ? target.checked : target.value;
   updateEntry(id, { [field]: value });
   if (field === "owned") renderTable();
 });
@@ -126,14 +216,24 @@ onlyMissingCheckbox.addEventListener("change", (e) => {
   renderTable();
 });
 
-tabs.forEach((tab) => {
+artistSelect.addEventListener("change", (e) => {
+  currentArtist = e.target.value;
+  renderTable();
+});
+
+viewTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    tabs.forEach((t) => t.classList.remove("active"));
+    viewTabs.forEach((t) => t.classList.remove("active"));
     tab.classList.add("active");
-    currentFilter = tab.dataset.filter;
+    currentView = tab.dataset.view;
+    currentFilter = "all";
+    currentArtist = "all";
+    renderArtistSelect();
+    renderFilterTabs();
     renderTable();
   });
 });
 
-renderStats();
+renderArtistSelect();
+renderFilterTabs();
 renderTable();
