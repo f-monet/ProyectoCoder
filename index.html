@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolling Stones — Control de Discografía</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>🎸 Rolling Stones — Discografía</h1>
+    <p class="subtitle">Dashboard de control de colección (1962–2026)</p>
+  </header>
+
+  <nav class="view-tabs" id="view-tabs">
+    <button class="view-tab active" data-view="band">The Rolling Stones</button>
+    <button class="view-tab" data-view="solo">Discografía Solista</button>
+  </nav>
+
+  <section class="stats">
+    <div class="stat-card">
+      <span class="stat-value" id="stat-total">0</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat-card owned">
+      <span class="stat-value" id="stat-owned">0</span>
+      <span class="stat-label">En colección</span>
+    </div>
+    <div class="stat-card missing">
+      <span class="stat-value" id="stat-missing">0</span>
+      <span class="stat-label">Faltan</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-pct">0%</span>
+      <span class="stat-label">Completado</span>
+    </div>
+  </section>
+
+  <section class="controls">
+    <input type="search" id="search" placeholder="Buscar álbum..." />
+
+    <select id="artist-select" class="artist-select" hidden></select>
+
+    <div class="filter-tabs" id="filter-tabs"></div>
+
+    <label class="toggle-missing">
+      <input type="checkbox" id="only-missing" />
+      Mostrar solo faltantes
+    </label>
+  </section>
+
+  <main>
+    <table class="album-table">
+      <thead id="table-head"></thead>
+      <tbody id="album-body"></tbody>
+    </table>
+  </main>
+
+  <footer class="app-footer">
+    <p>v1 en construcción — algunas categorías (singles/EPs, bootlegs, box sets) todavía se están completando.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
