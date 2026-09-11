@@ -237,3 +237,6 @@ viewTabs.forEach((tab) => {
 renderArtistSelect();
 renderFilterTabs();
 renderTable();
+
+const versionEl = document.getElementById("app-version");
+if (versionEl) versionEl.textContent = APP_VERSION;

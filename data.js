@@ -8,6 +8,8 @@
 // artist: "The Rolling Stones" o el nombre del integrante/solista
 // ============================================================================
 
+const APP_VERSION = "1.2";
+
 function slug(...parts) {
   return parts
     .join("-")
@@ -68,6 +70,7 @@ const STUDIO_ALBUMS = [
   album(RS, 2005, "A Bigger Bang", "Estudio", "Global", "Virgin"),
   album(RS, 2016, "Blue & Lonesome", "Estudio", "Global", "Polydor (UK) / Interscope (US)"),
   album(RS, 2023, "Hackney Diamonds", "Estudio", "Global", "Polydor (UK) / Interscope (US)"),
+  album(RS, 2026, "Foreign Tongues", "Estudio", "Global", "Polydor / Capitol", "25to álbum de estudio UK / 27mo US. Producido por Andrew Watt. 14 temas (15 en la Bonus Track Edition)."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -89,6 +92,10 @@ const LIVE_ALBUMS = [
   album(RS, 2020, "Steel Wheels Live", "Vivo", "Global", "Eagle Rock / Universal", "Grabado en Atlantic City, 1989."),
   album(RS, 2022, "Licked Live in NYC", "Vivo", "Global", "Mercury Studios", "Grabado en el Madison Square Garden, 2003."),
   album(RS, 2023, "GRRR Live!", "Vivo", "Global", "Mercury Studios / Polydor", "Grabado en la O2 Arena de Londres, 2012."),
+  album(RS, 2021, "A Bigger Bang: Live on Copacabana Beach", "Vivo", "Global", "Eagle Vision / Universal", "Show gratuito en la playa de Copacabana, Río de Janeiro, 18/2/2006 (gira A Bigger Bang). ~1.5 millones de asistentes."),
+  album(RS, 2024, "Live at the Wiltern", "Vivo", "Global", "Mercury Studios / Universal", "Grabado el 4/11/2002 en el Wiltern Theatre, LA (era gira Forty Licks)."),
+  album(RS, 2024, "Live At Racket, NYC", "Vivo", "Global", "Rolling Stones Records", "EP en vivo, show sorpresa en el club Racket NYC, 19/10/2023, víspera del lanzamiento de Hackney Diamonds (con Lady Gaga en \"Sweet Sounds of Heaven\"). Exclusivo Record Store Day, vinilo blanco limitado a 7.000 copias."),
+  album(RS, 2024, "Welcome to Shepherd's Bush", "Vivo", "Global", "Mercury Studios", "Grabado el 8/6/1999 en el Shepherd's Bush Empire, Londres (gira No Security), ~2.000 personas. Publicado 25 años después."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -126,6 +133,8 @@ const COMPILATION_ALBUMS = [
   album(RS, 2005, "Rarities 1971-2003", "Recopilatorio", "Global", "Virgin / Rolling Stones Records", "Versiones en vivo, remixes y rarezas de estudio."),
   album(RS, 2012, "GRRR!", "Recopilatorio", "Global", "ABKCO / Polydor / Interscope", "50 aniversario; toda la carrera + 2 temas nuevos."),
   album(RS, 2019, "Honk", "Recopilatorio", "Global", "Polydor / Interscope", "Recopilatorio ligado a la gira No Filter."),
+  album(RS, 2017, "The Rolling Stones: On Air", "Recopilatorio", "Global", "Polydor / UMe", "Sesiones de radio BBC 1963-1965. Edición estándar: 1CD, 18 temas."),
+  album(RS, 2017, "The Rolling Stones: On Air (Deluxe Edition)", "Recopilatorio", "Global", "Polydor / UMe", "2CD, 32 temas (18 de la estándar + 14 adicionales)."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -187,6 +196,7 @@ const BOX_SETS = [
   album(RS, 2022, "The Rolling Stones Singles 1963-1966", "Box", "", "ABKCO", "18x7\" vinilo, réplicas de simples, vol. 1 de la nueva serie."),
   album(RS, 2023, "Hackney Diamonds (Limited Edition Box)", "Box", "Global", "Polydor/Interscope", "CD+Blu-ray con audio hi-res/Dolby Atmos, libro y portada lenticular."),
   album(RS, 2024, "The Rolling Stones 7\" Singles 1966-1971", "Box", "", "ABKCO", "18x7\" vinilo, réplicas de simples, vol. 2 de la nueva serie."),
+  album(RS, 2026, "Foreign Tongues (Box Set)", "Box", "Global", "Polydor / Capitol", "2xVinilo + Blu-ray (Dolby Atmos/5.1/Hi-Res Stereo). También existe una versión \"CD Boxset\" con digisleeve, folleto de letras de 16 páginas, print 7\" y póster desplegable."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -293,6 +303,8 @@ const SINGLES_EPS = [
   album(RS, 2023, "Angry", "Single/EP", "UK", "Rolling Stones Records"),
   album(RS, 2023, "Sweet Sounds of Heaven", "Single/EP", "UK", "Rolling Stones Records"),
   album(RS, 2023, "Mess It Up", "Single/EP", "UK", "Rolling Stones Records"),
+  album(RS, 2026, "In the Stars", "Single/EP", "UK", "Polydor / Capitol", "Del álbum Foreign Tongues. Lado B: \"Rough and Twisted\" (antes solo en un single físico ultra limitado bajo el seudónimo \"The Cockroaches\")."),
+  album(RS, 2026, "Jealous Lover", "Single/EP", "UK", "Polydor / Capitol", "Del álbum Foreign Tongues. Lado B: \"Divine Intervention\"."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -312,6 +324,7 @@ const SOLO_ALBUMS = [
   album("Keith Richards", 1992, "Main Offender", "Estudio", "", "", "Con los X-Pensive Winos."),
   album("Keith Richards", 2015, "Crosseyed Heart", "Estudio", "", "", "Con los X-Pensive Winos."),
   album("Keith Richards", 2019, "Talk Is Cheap (30th Anniversary Deluxe Edition)", "Box", "", "", "Reedición deluxe del álbum de 1988."),
+  album("Keith Richards", 2026, "Main Offender (30th Anniversary Edition)", "Box", "", "BMG", "Reedición del álbum de 1992."),
 
   // --- Bill Wyman ---
   album("Bill Wyman", 1974, "Monkey Grip", "Estudio", "", "", "Debut solista."),
@@ -352,6 +365,7 @@ const SOLO_ALBUMS = [
   album("Ron Wood", 2000, "Live & Eclectic", "Vivo", "", "", "Grabado 1992; reeditado 2002 como \"Live at Electric Ladyland\"."),
   album("Ron Wood", 2001, "Not for Beginners", "Estudio"),
   album("Ron Wood", 2006, "Ronnie Wood Anthology: The Essential Crossexion", "Box", "", "", "2CD antología de toda su carrera."),
+  album("Ron Wood", 2025, "Fearless: Anthology 1965-2025", "Box", "", "", "Antología doble de toda su carrera (solista + Faces + Jeff Beck Group), con 4 grabaciones nuevas incluidas (su primer material solista inédito desde 2010), entre ellas una nueva versión de \"You're So Fine\" con Imelda May."),
   album("Ron Wood", 2007, "The First Barbarians: Live from Kilburn", "Vivo", "", "", "Grabado 1974, con Keith Richards, Ian McLagan, Kenney Jones, Willie Weeks."),
   album("Ron Wood", 2010, "I Feel Like Playing", "Estudio", "", "", "Con Slash, Billy Gibbons, Flea."),
   album("Ron Wood", 2019, "Mad Lad: A Live Tribute to Chuck Berry", "Vivo"),

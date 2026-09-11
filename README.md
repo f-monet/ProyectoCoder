@@ -1,16 +1,16 @@
 # Rolling Stones — Dashboard de Discografía
 
-Primera aproximación de una página para controlar la colección de discos de The Rolling Stones.
+Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.2** (visible al pie de la página).
 
 ## Qué es
 
 Página web estática (HTML + CSS + JS, sin backend) con dos vistas:
 
 **The Rolling Stones (banda)**
-- Álbumes de estudio 1964-2023, con ediciones UK/US separadas cuando el título o tracklist difiere (Decca, London Records, ABKCO, Rolling Stones Records, etc.)
-- Álbumes en vivo 1966-2023
-- Recopilatorios, desde el primero (1966) hasta Honk (2019)
-- Singles y EPs, 1963-2023
+- Álbumes de estudio 1964-2026, con ediciones UK/US separadas cuando el título o tracklist difiere (Decca, London Records, ABKCO, Rolling Stones Records, etc.)
+- Álbumes en vivo 1966-2024, incluyendo lanzamientos "de archivo" editados muchos años después del show
+- Recopilatorios, desde el primero (1966) hasta On Air (2017)
+- Singles y EPs, 1963-2026
 - Bootlegs de interés para coleccionistas (selección curada, ampliable)
 - Box sets, cada uno con su propio checkbox aunque reedite un álbum ya cargado
 
@@ -29,9 +29,16 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 2. Source: Deploy from a branch → elegir la rama y carpeta `/ (root)`.
 3. GitHub genera una URL pública (tipo `https://usuario.github.io/proyectocoder/`) accesible desde cualquier dispositivo.
 
+## Historial de versiones
+
+- **v1.2**: agrega "Foreign Tongues" (2026, álbum de estudio nuevo + singles + box), "On Air" (2017, estándar y deluxe), "A Bigger Bang: Live on Copacabana Beach" (2021), "Live at the Wiltern" (2024), "Live At Racket, NYC" (2024), "Welcome to Shepherd's Bush" (2024), la reedición de "Main Offender" de Keith Richards (2026) y "Fearless: Anthology 1965-2025" de Ron Wood. Se agrega el número de versión visible al pie de la página.
+- **v1.1**: primera carga completa — discografía de la banda (estudio, vivo, recopilatorios, singles/EPs, bootlegs, box sets) + discografía solista de los 8 integrantes/afines.
+- **v1.0**: primera aproximación del dashboard, con datos de ejemplo.
+
 ## Próximos pasos
 
-- Revisar y corregir la data cargada (es investigación de v1, puede tener errores u omisiones).
+- v1.3: mover el guardado de "tengo/no tengo" a la nube, para que no dependa del navegador/dispositivo.
+- Revisar y corregir la data cargada (puede tener errores u omisiones).
 - La lista de bootlegs es una selección curada, no exhaustiva — se puede seguir ampliando.
 - Podría faltar alguna edición regional muy específica (compilados solo-mercado, variantes de vinilo de los 70s/80s, etc.) — se agregan a medida que se detecten.
 

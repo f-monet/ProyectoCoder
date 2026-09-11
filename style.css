@@ -241,6 +241,12 @@ input[type="checkbox"] {
   padding-bottom: 10px;
 }
 
+.version-tag {
+  margin-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
 @media (min-width: 700px) {
   body {
     max-width: 900px;
