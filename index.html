@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolling Stones — Control de Discografía</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>🎸 Rolling Stones — Discografía</h1>
+    <p class="subtitle">Dashboard de control de colección</p>
+  </header>
+
+  <section class="stats">
+    <div class="stat-card">
+      <span class="stat-value" id="stat-total">0</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat-card owned">
+      <span class="stat-value" id="stat-owned">0</span>
+      <span class="stat-label">En colección</span>
+    </div>
+    <div class="stat-card missing">
+      <span class="stat-value" id="stat-missing">0</span>
+      <span class="stat-label">Faltan</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-pct">0%</span>
+      <span class="stat-label">Completado</span>
+    </div>
+  </section>
+
+  <section class="controls">
+    <input type="search" id="search" placeholder="Buscar álbum..." />
+    <div class="filter-tabs" id="filter-tabs">
+      <button class="tab active" data-filter="all">Todos</button>
+      <button class="tab" data-filter="Estudio">Estudio</button>
+      <button class="tab" data-filter="Vivo">En vivo</button>
+      <button class="tab" data-filter="Recopilatorio">Recopilatorios</button>
+    </div>
+    <label class="toggle-missing">
+      <input type="checkbox" id="only-missing" />
+      Mostrar solo faltantes
+    </label>
+  </section>
+
+  <main>
+    <table class="album-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Año</th>
+          <th>Álbum</th>
+          <th>Tipo</th>
+          <th>Formato</th>
+          <th>Notas</th>
+        </tr>
+      </thead>
+      <tbody id="album-body"></tbody>
+    </table>
+  </main>
+
+  <footer class="app-footer">
+    <p>Primera aproximación — datos de ejemplo, a completar con la info definitiva.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
