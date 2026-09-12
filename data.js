@@ -8,7 +8,7 @@
 // artist: "The Rolling Stones" o el nombre del integrante/solista
 // ============================================================================
 
-const APP_VERSION = "1.6";
+const APP_VERSION = "1.7";
 
 function slug(...parts) {
   return parts
@@ -104,6 +104,19 @@ const LIVE_ALBUMS = [
   album(RS, 2024, "Live at the Wiltern", "Vivo", "Global", "Mercury Studios / Universal", "Grabado el 4/11/2002 en el Wiltern Theatre, LA (era gira Forty Licks)."),
   album(RS, 2024, "Live At Racket, NYC", "Vivo", "Global", "Rolling Stones Records", "EP en vivo, show sorpresa en el club Racket NYC, 19/10/2023, víspera del lanzamiento de Hackney Diamonds (con Lady Gaga en \"Sweet Sounds of Heaven\"). Exclusivo Record Store Day, vinilo blanco limitado a 7.000 copias."),
   album(RS, 2024, "Welcome to Shepherd's Bush", "Vivo", "Global", "Mercury Studios", "Grabado el 8/6/1999 en el Shepherd's Bush Empire, Londres (gira No Security), ~2.000 personas. Publicado 25 años después."),
+  album(RS, 1970, "Gimme Shelter", "Vivo", "Global", "Criterion / Maysles Films", "Documental de 1970 sobre la gira US 1969 y Altamont. No es sello propio de la banda, pero es un film autorizado."),
+  album(RS, 1972, "Ladies and Gentlemen: The Rolling Stones", "Vivo", "Global", "Eagle Vision", "Filmada en 1972 (gira US de Exile on Main St., 4 noches en Texas). Estreno en cines 1974; restaurada y editada en DVD/Blu-ray recién en 2010."),
+  album(RS, 1989, "25x5: The Continuing Adventures of the Rolling Stones", "Vivo", "Global", "CBS/Fox Video", "Documental de toda la carrera de la banda hasta Steel Wheels. Solo salió en VHS/LaserDisc, nunca tuvo edición en DVD."),
+  album(RS, 1991, "Rolling Stones: Live at the Max", "Vivo", "Global", "Eagle Vision", "Grabado en 1990 (gira Steel Wheels/Urban Jungle). Primer film de concierto IMAX de la historia. VHS/LaserDisc 1991; reeditado en DVD/Blu-ray en 2009."),
+  album(RS, 1995, "Voodoo Lounge Live", "Vivo", "Global", "Eagle Vision", "Grabado el 25/11/1994, Joe Robbie Stadium, Miami. Versión editada del show (17 de 27 temas); VHS 1995, DVD 1998. Distinto de \"Voodoo Lounge Uncut\" (2018), que es el show completo."),
+  album(RS, 2003, "Four Flicks", "Vivo", "Global", "Eagle Vision", "Box de 4 DVD de la gira Licks (2002-03): The Wiltern Theatre (LA), Madison Square Garden (NY), Twickenham Stadium (Londres) y Olympia (París), más documental y extras."),
+  album(RS, 2007, "The Biggest Bang", "Box", "Global", "Eagle Vision", "Box de 4 DVD con recortes de varias etapas de la gira A Bigger Bang (2005-06): Zilker Park Austin, Copacabana Rio, Japón/China/Argentina, y documental \"Salt of the Earth\". Se superpone parcialmente con otros discos ya cargados (Copacabana completo, Sweet Summer Sun, GRRR Live!)."),
+  album(RS, 2011, "Some Girls: Live in Texas '78", "Vivo", "Global", "Eagle Vision", "Grabado el 18/7/1978, Fort Worth, Texas (gira Some Girls)."),
+  album(RS, 2012, "Light the Fuse: Bigger Bang", "Vivo", "Global", "Google Play Music", "Grabado el 10/8/2005 en el Phoenix Concert Theatre, Toronto (show chico previo a la gira A Bigger Bang). Ojo: solo se editó como descarga digital de audio (2012) — nunca tuvo DVD/Blu-ray oficial; los DVD que circulan de este show son bootlegs no oficiales."),
+  album(RS, 2016, "Totally Stripped", "Vivo", "Global", "Eagle Vision", "Documental + 3 shows completos de la era Stripped (1995): Amsterdam, París y Brixton Academy (Londres)."),
+  album(RS, 2012, "Crossfire Hurricane", "Vivo", "Global", "Eagle Rock / Eagle Vision / HBO", "Documental de toda la carrera (1962-1981) por el 50 aniversario, dirigido por Brett Morgen."),
+  album(RS, 2017, "Olé Olé Olé! A Trip Across Latin America", "Vivo", "Global", "Eagle Vision", "Documental de la gira América Latina Olé (2016), con 7 temas en vivo de bonus. Distinto de \"Havana Moon\", que es el show completo de La Habana."),
+  album(RS, 2019, "Bridges to Buenos Aires", "Vivo", "Global", "Eagle Vision", "Grabado el 5/4/1998 en el Estadio River Plate, Buenos Aires (última noche de la gira Bridges to Babylon en Argentina), con Bob Dylan invitado en \"Like a Rolling Stone\"."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -171,6 +184,9 @@ const BOOTLEGS = [
   album(RS, 1970, "The Trident Mixes", "Bootleg", "", "", "Acetatos de Trident Studios de la era Beggars Banquet/Let It Bleed/Sticky Fingers."),
   album(RS, 1968, "Beggars Banquet Sessions", "Bootleg", "", "", "Olympic Studios, marzo-mayo 1968. Tomas alternativas de Beggars Banquet y Let It Bleed."),
   album(RS, 1976, "Place Pigalle", "Bootleg", "", "", "Outtakes de estudio 1972-1981 (Nellcôte, Musicland, Dynamic Sound, Pathé Marconi, Compass Point)."),
+  album(RS, 1997, "The Double Door (Chicago)", "Bootleg", "", "", "Show sorpresa en el club Double Door, Chicago, 26/9/1997, previo a la gira Bridges to Babylon. Bootleg en video profesional muy valorado por coleccionistas."),
+  album(RS, 1998, "Rio '98", "Bootleg", "", "", "Show gratuito al aire libre en Río de Janeiro (gira Bridges to Babylon), con más de 1 millón de asistentes según reportes. Bootleg de la transmisión, filmado profesionalmente."),
+  album(RS, 1976, "Tour of Europe '76 – Earls Court", "Bootleg", "", "", "Earls Court, Londres, mayo de 1976 (gira europea, era Black and Blue). Bootleg de filmación de TV/venue, nunca editado oficialmente."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -205,6 +221,7 @@ const BOX_SETS = [
   album(RS, 2023, "Hackney Diamonds (Limited Edition Box)", "Box", "Global", "Polydor/Interscope", "CD+Blu-ray con audio hi-res/Dolby Atmos, libro y portada lenticular."),
   album(RS, 2024, "The Rolling Stones 7\" Singles 1966-1971", "Box", "", "ABKCO", "18x7\" vinilo, réplicas de simples, vol. 2 de la nueva serie."),
   album(RS, 2026, "Foreign Tongues (Box Set)", "Box", "Global", "Polydor / Capitol", "2xVinilo + Blu-ray (Dolby Atmos/5.1/Hi-Res Stereo). También existe una versión \"CD Boxset\" con digisleeve, folleto de letras de 16 páginas, print 7\" y póster desplegable."),
+  album(RS, 2019, "The Rolling Stones Rock and Roll Circus (Deluxe Edition)", "Box", "Global", "ABKCO", "Restauración 4K/Dolby Vision del film de 1968 (editado por primera vez en 1996). Incluye 2CD + Blu-ray + DVD."),
 ];
 
 // ---------------------------------------------------------------------------
