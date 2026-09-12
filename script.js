@@ -1,5 +1,6 @@
 const BAND_CATEGORIES = ["Estudio", "Vivo", "Recopilatorio", "Single/EP", "Bootleg", "Box"];
 const SOLO_CATEGORIES = ["Estudio", "Vivo", "Box"];
+const FORMAT_OPTIONS = ["Vinilo", "CD", "Digital", "Cassette", "DVD", "Blu-ray"];
 
 const db = firebase.firestore();
 const collectionRef = db.collection("coleccion");
@@ -20,7 +21,10 @@ const artistSelect = document.getElementById("artist-select");
 const viewTabs = document.querySelectorAll(".view-tab");
 
 function getEntry(id) {
-  return state[id] || { owned: false, format: "", notes: "" };
+  const raw = state[id] || {};
+  // Compatibilidad con datos viejos: antes "format" era un string único.
+  const formats = Array.isArray(raw.formats) ? raw.formats : raw.format ? [raw.format] : [];
+  return { owned: !!raw.owned, formats, notes: raw.notes || "" };
 }
 
 function updateEntry(id, patch) {
@@ -30,6 +34,12 @@ function updateEntry(id, patch) {
   collectionRef.doc(id).set(entry, { merge: true }).catch((err) => {
     console.error("No se pudo guardar en la nube:", err);
   });
+}
+
+function toggleFormat(id, formatValue, checked) {
+  const current = getEntry(id).formats;
+  const next = checked ? [...current, formatValue] : current.filter((f) => f !== formatValue);
+  updateEntry(id, { formats: next });
 }
 
 function albumsInView() {
@@ -158,13 +168,15 @@ function renderTable() {
       <td><span class="badge badge-${catClass}">${albumRow.category}</span></td>
       ${showRegionLabelCols ? `<td>${albumRow.region || "—"}</td><td>${albumRow.label || "—"}</td>` : ""}
       <td>
-        <select data-id="${albumRow.id}" data-field="format">
-          <option value="" ${!entry.format ? "selected" : ""}>—</option>
-          <option value="Vinilo" ${entry.format === "Vinilo" ? "selected" : ""}>Vinilo</option>
-          <option value="CD" ${entry.format === "CD" ? "selected" : ""}>CD</option>
-          <option value="Digital" ${entry.format === "Digital" ? "selected" : ""}>Digital</option>
-          <option value="Cassette" ${entry.format === "Cassette" ? "selected" : ""}>Cassette</option>
-        </select>
+        <div class="format-group">
+          ${FORMAT_OPTIONS.map(
+            (fmt) => `
+            <label class="format-chip">
+              <input type="checkbox" data-id="${albumRow.id}" data-role="format" data-value="${fmt}" ${entry.formats.includes(fmt) ? "checked" : ""} />
+              ${fmt}
+            </label>`
+          ).join("")}
+        </div>
       </td>
       <td>
         <input type="text" class="notes-input" placeholder="Notas..." value="${entry.notes || ""}" data-id="${albumRow.id}" data-field="notes" />
@@ -179,6 +191,12 @@ function renderTable() {
 tbody.addEventListener("change", (e) => {
   const target = e.target;
   const id = target.dataset.id;
+
+  if (target.dataset.role === "format") {
+    toggleFormat(id, target.dataset.value, target.checked);
+    return;
+  }
+
   const field = target.dataset.field;
   if (!id || !field) return;
 

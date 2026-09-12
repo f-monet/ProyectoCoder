@@ -222,6 +222,28 @@ select,
   min-width: 90px;
 }
 
+.format-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 160px;
+}
+
+.format-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.format-chip input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+}
+
 input[type="checkbox"] {
   width: 18px;
   height: 18px;
