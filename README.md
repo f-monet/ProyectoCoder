@@ -1,6 +1,6 @@
 # Rolling Stones — Dashboard de Discografía
 
-Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.4** (visible al pie de la página).
+Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.5** (visible al pie de la página).
 
 ## Qué es
 
@@ -16,7 +16,7 @@ Página web estática (HTML + CSS + JS, sin backend) con dos vistas:
 
 **Discografía Solista** — Mick Jagger, Keith Richards, Bill Wyman, Charlie Watts, Ron Wood, Mick Taylor, Andrew Loog Oldham y Brian Jones, con sus álbumes de estudio, en vivo y box sets.
 
-Cada disco tiene: checkbox de "lo tengo", región, sello discográfico (para la banda), formato (Vinilo/CD/Digital/Cassette) y notas. Hay buscador, filtros por tipo, y estadísticas de progreso (total, en colección, faltantes, % completado) calculadas sobre la vista/filtro actual.
+Cada disco tiene: checkbox de "lo tengo", región, sello discográfico (para la banda), formato (podés tildar varios a la vez: Vinilo/CD/Digital/Cassette/DVD/Blu-ray, para los casos que lo tenés en más de un soporte) y notas. Hay buscador, filtros por tipo, y estadísticas de progreso (total, en colección, faltantes, % completado) calculadas sobre la vista/filtro actual.
 
 Los datos del catálogo están en `data.js`. El estado de "tengo/no tengo" (owned/formato/notas) se guarda en **Firebase Firestore** (`firebase-config.js`), así que es el mismo desde cualquier dispositivo/navegador.
 
@@ -31,6 +31,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Historial de versiones
 
+- **v1.5**: el formato pasa de ser un dropdown de una sola opción a checkboxes múltiples (Vinilo, CD, Digital, Cassette, DVD, Blu-ray), para poder marcar que un mismo disco se tiene en varios soportes. Los datos viejos (un solo formato guardado como texto) se siguen leyendo bien, se migran solos la primera vez que se tocan.
 - **v1.4**: reemplaza la guitarra 🎸 por el emoji de lengua 👅 en el título y como ícono de la pestaña del navegador (favicon). No se usa el logo oficial de la banda por ser una marca registrada (diseño de John Pasche, propiedad de Musidor B.V.).
 - **v1.3**: el estado de "tengo/no tengo" pasa de `localStorage` a **Firebase Firestore**, así que ahora se comparte entre dispositivos/navegadores en tiempo real. Las reglas de Firestore están abiertas (lectura/escritura pública) — bajo riesgo dado el uso personal, pero cualquiera con el link técnicamente podría modificar los datos.
 - **v1.2**: agrega "Foreign Tongues" (2026, álbum de estudio nuevo + singles + box), "On Air" (2017, estándar y deluxe), "A Bigger Bang: Live on Copacabana Beach" (2021), "Live at the Wiltern" (2024), "Live At Racket, NYC" (2024), "Welcome to Shepherd's Bush" (2024), la reedición de "Main Offender" de Keith Richards (2026) y "Fearless: Anthology 1965-2025" de Ron Wood. Se agrega el número de versión visible al pie de la página.
@@ -39,7 +40,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Próximos pasos
 
-- v1.5 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
+- v1.6 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
 - Revisar y corregir la data cargada (puede tener errores u omisiones).
 - La lista de bootlegs es una selección curada, no exhaustiva — se puede seguir ampliando.
 - Podría faltar alguna edición regional muy específica (compilados solo-mercado, variantes de vinilo de los 70s/80s, etc.) — se agregan a medida que se detecten.
