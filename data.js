@@ -8,7 +8,7 @@
 // artist: "The Rolling Stones" o el nombre del integrante/solista
 // ============================================================================
 
-const APP_VERSION = "1.5";
+const APP_VERSION = "1.6";
 
 function slug(...parts) {
   return parts
@@ -87,9 +87,17 @@ const LIVE_ALBUMS = [
   album(RS, 2004, "Live Licks", "Vivo", "Global", "Virgin"),
   album(RS, 2008, "Shine a Light", "Vivo", "Global", "Interscope / Polydor", "Soundtrack del documental de Scorsese."),
   album(RS, 2013, "Sweet Summer Sun: Hyde Park Live", "Vivo", "Global", "Interscope / Eagle Vision"),
-  album(RS, 2015, "Sticky Fingers Live at the Fonda Theatre", "Vivo", "Global", "Eagle Records", "Serie \"From the Vault\": Sticky Fingers completo en vivo."),
+  album(RS, 2014, "From the Vault: Hampton Coliseum – Live in 1981", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 18/12/1981, Hampton VA (gira Tattoo You)."),
+  album(RS, 2014, "From the Vault: L.A. Forum – Live in 1975", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 12/7/1975, The Forum, Inglewood (primera gira con Ronnie Wood)."),
+  album(RS, 2015, "From the Vault: The Marquee Club – Live in 1971", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 26/3/1971, Marquee Club, Londres (show chico/especial de TV, previo a Sticky Fingers)."),
+  album(RS, 2015, "From the Vault: Hyde Park Live, 1969", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 5/7/1969, Hyde Park, Londres (recital gratuito, debut de Mick Taylor)."),
+  album(RS, 2015, "From the Vault: Live in Leeds 1982", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 25/7/1982, Roundhay Park, Leeds (cierre de la gira europea 1982, último show de Ian Stewart)."),
+  album(RS, 2015, "From the Vault: Live at the Tokyo Dome 1990", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado en febrero de 1990, Tokyo Dome (cierre de la gira Steel Wheels)."),
+  album(RS, 2017, "From the Vault: Sticky Fingers Live at the Fonda Theatre", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 20/5/2015 (arranque de la gira Zip Code, Sticky Fingers completo en vivo); editado en 2017."),
+  album(RS, 2018, "From the Vault: No Security – San Jose 1999", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Grabado el 19-20/4/1999, San Jose Arena (gira No Security)."),
   album(RS, 2016, "Havana Moon", "Vivo", "Global", "Eagle Vision / Universal", "Show gratuito en La Habana, Cuba."),
   album(RS, 2020, "Steel Wheels Live", "Vivo", "Global", "Eagle Rock / Universal", "Grabado en Atlantic City, 1989."),
+  album(RS, 2022, "Live at the El Mocambo", "Vivo", "Global", "Mercury Studios / Universal", "Grabado el 4-5/3/1977 en el club El Mocambo, Toronto."),
   album(RS, 2022, "Licked Live in NYC", "Vivo", "Global", "Mercury Studios", "Grabado en el Madison Square Garden, 2003."),
   album(RS, 2023, "GRRR Live!", "Vivo", "Global", "Mercury Studios / Polydor", "Grabado en la O2 Arena de Londres, 2012."),
   album(RS, 2021, "A Bigger Bang: Live on Copacabana Beach", "Vivo", "Global", "Eagle Vision / Universal", "Show gratuito en la playa de Copacabana, Río de Janeiro, 18/2/2006 (gira A Bigger Bang). ~1.5 millones de asistentes."),
