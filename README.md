@@ -1,6 +1,6 @@
 # Rolling Stones — Dashboard de Discografía
 
-Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.5** (visible al pie de la página).
+Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.6** (visible al pie de la página).
 
 ## Qué es
 
@@ -31,6 +31,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Historial de versiones
 
+- **v1.6**: completa la serie oficial "From the Vault" (Eagle Rock/Eagle Vision), que solo tenía un disco cargado. Se agregan los 7 que faltaban: Hampton Coliseum 1981, L.A. Forum 1975, The Marquee Club 1971, Hyde Park 1969, Live in Leeds 1982 (el que faltaba y disparó la revisión), Tokyo Dome 1990 y No Security San Jose 1999. También se corrige el año de "Sticky Fingers Live at the Fonda Theatre" (grabado en 2015, editado en 2017 — antes estaba mal cargado como 2015) y se agrega "Live at the El Mocambo" (2022), la edición oficial del show de 1977 que solo estaba cargado como bootleg.
 - **v1.5**: el formato pasa de ser un dropdown de una sola opción a checkboxes múltiples (Vinilo, CD, Digital, Cassette, DVD, Blu-ray), para poder marcar que un mismo disco se tiene en varios soportes. Los datos viejos (un solo formato guardado como texto) se siguen leyendo bien, se migran solos la primera vez que se tocan.
 - **v1.4**: reemplaza la guitarra 🎸 por el emoji de lengua 👅 en el título y como ícono de la pestaña del navegador (favicon). No se usa el logo oficial de la banda por ser una marca registrada (diseño de John Pasche, propiedad de Musidor B.V.).
 - **v1.3**: el estado de "tengo/no tengo" pasa de `localStorage` a **Firebase Firestore**, así que ahora se comparte entre dispositivos/navegadores en tiempo real. Las reglas de Firestore están abiertas (lectura/escritura pública) — bajo riesgo dado el uso personal, pero cualquiera con el link técnicamente podría modificar los datos.
@@ -40,7 +41,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Próximos pasos
 
-- v1.6 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
+- v1.7 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
 - Revisar y corregir la data cargada (puede tener errores u omisiones).
 - La lista de bootlegs es una selección curada, no exhaustiva — se puede seguir ampliando.
 - Podría faltar alguna edición regional muy específica (compilados solo-mercado, variantes de vinilo de los 70s/80s, etc.) — se agregan a medida que se detecten.
