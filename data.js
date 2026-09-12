@@ -8,7 +8,7 @@
 // artist: "The Rolling Stones" o el nombre del integrante/solista
 // ============================================================================
 
-const APP_VERSION = "1.7";
+const APP_VERSION = "1.8";
 
 function slug(...parts) {
   return parts
@@ -117,6 +117,9 @@ const LIVE_ALBUMS = [
   album(RS, 2012, "Crossfire Hurricane", "Vivo", "Global", "Eagle Rock / Eagle Vision / HBO", "Documental de toda la carrera (1962-1981) por el 50 aniversario, dirigido por Brett Morgen."),
   album(RS, 2017, "Olé Olé Olé! A Trip Across Latin America", "Vivo", "Global", "Eagle Vision", "Documental de la gira América Latina Olé (2016), con 7 temas en vivo de bonus. Distinto de \"Havana Moon\", que es el show completo de La Habana."),
   album(RS, 2019, "Bridges to Buenos Aires", "Vivo", "Global", "Eagle Vision", "Grabado el 5/4/1998 en el Estadio River Plate, Buenos Aires (última noche de la gira Bridges to Babylon en Argentina), con Bob Dylan invitado en \"Like a Rolling Stone\"."),
+  album(RS, 2010, "Stones in Exile", "Vivo", "Global", "Eagle Rock / Eagle Vision", "Documental sobre la grabación de Exile on Main St. (1972), dirigido por Stephen Kijak. Venta standalone y también incluido en la reedición deluxe del álbum (2010)."),
+  album(RS, 2012, "Charlie Is My Darling (edición estándar)", "Vivo", "Global", "ABKCO", "Edición simple en DVD/Blu-ray de la gira Irlanda 1965, distinta del box Super Deluxe (que trae además 2CD, vinilo 10\" y libro)."),
+  album(RS, 2022, "My Life as a Rolling Stone", "Vivo", "Global", "BBC", "Serie documental de 4 episodios (uno por Jagger, Richards, Wood y un homenaje póstumo a Watts)."),
 ];
 
 // ---------------------------------------------------------------------------
@@ -342,6 +345,7 @@ const SOLO_ALBUMS = [
   album("Mick Jagger", 1993, "Wandering Spirit", "Estudio"),
   album("Mick Jagger", 2001, "Goddess in the Doorway", "Estudio"),
   album("Mick Jagger", 2011, "SuperHeavy", "Estudio", "", "", "Proyecto SuperHeavy (Jagger, Joss Stone, Dave Stewart, A.R. Rahman, Damian Marley)."),
+  album("Mick Jagger", 2001, "Being Mick", "Vivo", "", "", "Documental para TV (ABC), dirigido por Kevin Macdonald y Jim Gable."),
 
   // --- Keith Richards ---
   album("Keith Richards", 1988, "Talk Is Cheap", "Estudio", "", "", "Con los X-Pensive Winos."),
@@ -350,6 +354,7 @@ const SOLO_ALBUMS = [
   album("Keith Richards", 2015, "Crosseyed Heart", "Estudio", "", "", "Con los X-Pensive Winos."),
   album("Keith Richards", 2019, "Talk Is Cheap (30th Anniversary Deluxe Edition)", "Box", "", "", "Reedición deluxe del álbum de 1988."),
   album("Keith Richards", 2026, "Main Offender (30th Anniversary Edition)", "Box", "", "BMG", "Reedición del álbum de 1992."),
+  album("Keith Richards", 2015, "Keith Richards: Under the Influence", "Vivo", "", "", "Documental dirigido por Morgan Neville, Netflix."),
 
   // --- Bill Wyman ---
   album("Bill Wyman", 1974, "Monkey Grip", "Estudio", "", "", "Debut solista."),
@@ -366,6 +371,7 @@ const SOLO_ALBUMS = [
   album("Bill Wyman", 2018, "Studio Time", "Estudio", "", "", "Bill Wyman's Rhythm Kings."),
   album("Bill Wyman", 2024, "Drive My Car", "Estudio", "", "", "9no álbum solista."),
   album("Bill Wyman", 2025, "Treasury", "Box", "", "", "Box 7CD que abarca 1974-2024, con rarezas/demos."),
+  album("Bill Wyman", 2019, "The Quiet One", "Vivo", "", "", "Documental sobre su vida, dirigido por Oliver Murray, armado con su propio archivo personal. Ojo: el apodo \"el callado\" también se usa para Charlie Watts, pero esta película es sobre Wyman."),
 
   // --- Charlie Watts ---
   album("Charlie Watts", 1986, "Live at Fulham Town Hall", "Vivo", "", "", "Charlie Watts Orchestra."),
@@ -391,6 +397,7 @@ const SOLO_ALBUMS = [
   album("Ron Wood", 2001, "Not for Beginners", "Estudio"),
   album("Ron Wood", 2006, "Ronnie Wood Anthology: The Essential Crossexion", "Box", "", "", "2CD antología de toda su carrera."),
   album("Ron Wood", 2025, "Fearless: Anthology 1965-2025", "Box", "", "", "Antología doble de toda su carrera (solista + Faces + Jeff Beck Group), con 4 grabaciones nuevas incluidas (su primer material solista inédito desde 2010), entre ellas una nueva versión de \"You're So Fine\" con Imelda May."),
+  album("Ron Wood", 2019, "Somebody Up There Likes Me", "Vivo", "", "", "Documental sobre su vida y carrera, dirigido por Mike Figgis."),
   album("Ron Wood", 2007, "The First Barbarians: Live from Kilburn", "Vivo", "", "", "Grabado 1974, con Keith Richards, Ian McLagan, Kenney Jones, Willie Weeks."),
   album("Ron Wood", 2010, "I Feel Like Playing", "Estudio", "", "", "Con Slash, Billy Gibbons, Flea."),
   album("Ron Wood", 2019, "Mad Lad: A Live Tribute to Chuck Berry", "Vivo"),
