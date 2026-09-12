@@ -1,6 +1,6 @@
 # Rolling Stones — Dashboard de Discografía
 
-Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.3** (visible al pie de la página).
+Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.4** (visible al pie de la página).
 
 ## Qué es
 
@@ -31,6 +31,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Historial de versiones
 
+- **v1.4**: reemplaza la guitarra 🎸 por el emoji de lengua 👅 en el título y como ícono de la pestaña del navegador (favicon). No se usa el logo oficial de la banda por ser una marca registrada (diseño de John Pasche, propiedad de Musidor B.V.).
 - **v1.3**: el estado de "tengo/no tengo" pasa de `localStorage` a **Firebase Firestore**, así que ahora se comparte entre dispositivos/navegadores en tiempo real. Las reglas de Firestore están abiertas (lectura/escritura pública) — bajo riesgo dado el uso personal, pero cualquiera con el link técnicamente podría modificar los datos.
 - **v1.2**: agrega "Foreign Tongues" (2026, álbum de estudio nuevo + singles + box), "On Air" (2017, estándar y deluxe), "A Bigger Bang: Live on Copacabana Beach" (2021), "Live at the Wiltern" (2024), "Live At Racket, NYC" (2024), "Welcome to Shepherd's Bush" (2024), la reedición de "Main Offender" de Keith Richards (2026) y "Fearless: Anthology 1965-2025" de Ron Wood. Se agrega el número de versión visible al pie de la página.
 - **v1.1**: primera carga completa — discografía de la banda (estudio, vivo, recopilatorios, singles/EPs, bootlegs, box sets) + discografía solista de los 8 integrantes/afines.
@@ -38,7 +39,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Próximos pasos
 
-- v1.4 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
+- v1.5 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
 - Revisar y corregir la data cargada (puede tener errores u omisiones).
 - La lista de bootlegs es una selección curada, no exhaustiva — se puede seguir ampliando.
 - Podría faltar alguna edición regional muy específica (compilados solo-mercado, variantes de vinilo de los 70s/80s, etc.) — se agregan a medida que se detecten.
