@@ -1,6 +1,6 @@
 # Rolling Stones — Dashboard de Discografía
 
-Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.6** (visible al pie de la página).
+Página para controlar la colección de discos de The Rolling Stones. Versión actual: **v1.7** (visible al pie de la página).
 
 ## Qué es
 
@@ -31,6 +31,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Historial de versiones
 
+- **v1.7**: agrega los films/documentales en vivo autorizados que faltaban (Ladies and Gentlemen, Gimme Shelter, 25x5, Live at the Max, Voodoo Lounge Live original, Four Flicks, The Biggest Bang, Some Girls Live in Texas '78, Light the Fuse: Bigger Bang, Totally Stripped, Crossfire Hurricane, Olé Olé Olé!, Bridges to Buenos Aires) y el box deluxe 2019 de Rock and Roll Circus. Se suman 3 bootlegs en video de alto interés (The Double Door 1997, Rio '98, Earls Court '76). Correcciones: "12x5" ya estaba cubierto por el álbum de estudio de 1964, no es un DVD aparte; "Light the Fuse: Bigger Bang" nunca tuvo DVD oficial (solo descarga digital de audio, 2012) — se aclara en la nota del disco.
 - **v1.6**: completa la serie oficial "From the Vault" (Eagle Rock/Eagle Vision), que solo tenía un disco cargado. Se agregan los 7 que faltaban: Hampton Coliseum 1981, L.A. Forum 1975, The Marquee Club 1971, Hyde Park 1969, Live in Leeds 1982 (el que faltaba y disparó la revisión), Tokyo Dome 1990 y No Security San Jose 1999. También se corrige el año de "Sticky Fingers Live at the Fonda Theatre" (grabado en 2015, editado en 2017 — antes estaba mal cargado como 2015) y se agrega "Live at the El Mocambo" (2022), la edición oficial del show de 1977 que solo estaba cargado como bootleg.
 - **v1.5**: el formato pasa de ser un dropdown de una sola opción a checkboxes múltiples (Vinilo, CD, Digital, Cassette, DVD, Blu-ray), para poder marcar que un mismo disco se tiene en varios soportes. Los datos viejos (un solo formato guardado como texto) se siguen leyendo bien, se migran solos la primera vez que se tocan.
 - **v1.4**: reemplaza la guitarra 🎸 por el emoji de lengua 👅 en el título y como ícono de la pestaña del navegador (favicon). No se usa el logo oficial de la banda por ser una marca registrada (diseño de John Pasche, propiedad de Musidor B.V.).
@@ -41,7 +42,7 @@ Para acceder desde el celular vía internet, se puede publicar con **GitHub Page
 
 ## Próximos pasos
 
-- v1.7 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
+- v1.8 (posible): agregar login simple para que solo el dueño pueda editar, y así cerrar las reglas de Firestore.
 - Revisar y corregir la data cargada (puede tener errores u omisiones).
 - La lista de bootlegs es una selección curada, no exhaustiva — se puede seguir ampliando.
 - Podría faltar alguna edición regional muy específica (compilados solo-mercado, variantes de vinilo de los 70s/80s, etc.) — se agregan a medida que se detecten.
